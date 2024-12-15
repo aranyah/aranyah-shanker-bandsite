@@ -1,0 +1,129 @@
+
+@import './partials/variables';
+@import './partials/mixins';
+@import './partials/global';
+
+
+.hero {
+    position: relative;
+    height: 25rem; // Approximate mobile height
+    background-color: $color-bandsite-black;
+    background-image: url('/assets/images/hero-bio.jpg'); 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $color-bandsite-black;
+        opacity: 0.5;
+    }
+
+    &__title {
+        position: relative;
+        z-index: 1;
+        color: $color-white;
+    }
+
+    @include respond-to(tablet) {
+        height: 31.25rem; // Larger height for tablet
+    }
+
+    @include respond-to(desktop) {
+        height: 43.75rem; // Even larger for desktop
+    }
+}
+
+// Navigation
+.header {
+    background-color: $color-bandsite-black;
+
+    &__nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include respond-to(tablet) {
+            flex-direction: row;
+            justify-content: flex-start;
+            padding: $spacing-md;
+        }
+    }
+
+    &__logo {
+        color: $color-white;
+        font-weight: $weight-bold;
+        padding: $spacing-md;
+        width: 100%;
+        text-align: center;
+
+        @include respond-to(tablet) {
+            width: auto;
+            margin-right: $spacing-xxl;
+        }
+    }
+
+    &__nav-list {
+        display: flex;
+        width: 100%;
+        list-style: none;
+    }
+
+    &__nav-item {
+        flex-grow: 1;
+        text-align: center;
+
+        @include respond-to(tablet) {
+            flex-grow: 0;
+            margin-right: $spacing-lg;
+        }
+    }
+
+    &__nav-link {
+        display: block;
+        color: $color-mercury;
+        padding: $spacing-md 0;
+        border-bottom: 3px solid transparent;
+        transition: all 0.3s ease;
+
+        &:hover,
+        &--active {
+            color: $color-white;
+            border-bottom-color: $color-white;
+        }
+    }
+}
+
+.photo-gallery {
+    &__title {
+        margin-bottom: $spacing-lg;
+    }
+
+    &__grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $spacing-md;
+        justify-content: space-between;
+    }
+
+    &__image {
+        width: calc(50% - #{$spacing-md} / 2);
+        margin-bottom: $spacing-md;
+        object-fit: cover;
+        aspect-ratio: 1 / 1;
+
+        @include respond-to(tablet) {
+            width: calc(33.333% - #{$spacing-md} * 2 / 3);
+        }
+
+        @include respond-to(desktop) {
+            width: calc(33.333% - #{$spacing-md} * 2 / 3);
+        }
+    }
+}
