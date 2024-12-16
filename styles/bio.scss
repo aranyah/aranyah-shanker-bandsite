@@ -115,7 +115,7 @@
         display: block;
         color: $color-mercury;
         padding: $spacing-md 0;
-        border-bottom: 3px solid transparent;
+        border-bottom: 0.1875rem solid transparent;
         transition: all 0.3s ease;
 
         &:hover,
@@ -245,14 +245,14 @@
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: space-between;
-            margin-bottom: 24px;
+            margin-bottom: 1.5rem;
             padding: 0 2rem;
         }
         @include respond-to(desktop) {
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: space-between;
-            margin-bottom: 24px;
+            margin-bottom: 1.5rem;
             padding: 0 3rem;
         }
         
