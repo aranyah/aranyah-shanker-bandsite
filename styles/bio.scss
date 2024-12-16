@@ -6,14 +6,15 @@
 
 .hero {
     position: relative;
-    height: 25rem; // Approximate mobile height
+    height: 25rem; 
     background-color: $color-bandsite-black;
     background-image: url('/assets/images/hero-bio.jpg'); 
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
+
 
     &__overlay {
         position: absolute;
@@ -27,20 +28,28 @@
 
     &__title {
         position: relative;
-        z-index: 1;
         color: $color-white;
+
+        @include respond-to(tablet) {
+            padding: 0 4rem ;
+        }
+
+        @include respond-to(desktop) {
+            padding: 0 4rem ;
+        }
+
     }
 
     @include respond-to(tablet) {
-        height: 31.25rem; // Larger height for tablet
+        height: 31.25rem; 
     }
 
     @include respond-to(desktop) {
-        height: 43.75rem; // Even larger for desktop
+        height: 43.75rem; 
     }
 }
 
-// Navigation
+
 .header {
     background-color: $color-bandsite-black;
 
@@ -50,6 +59,12 @@
         align-items: center;
 
         @include respond-to(tablet) {
+            flex-direction: row;
+            justify-content: flex-start;
+            padding: $spacing-md;
+        }
+
+        @include respond-to(desktop) {
             flex-direction: row;
             justify-content: flex-start;
             padding: $spacing-md;
@@ -64,6 +79,11 @@
         text-align: center;
 
         @include respond-to(tablet) {
+            width: auto;
+            margin-right: $spacing-xxl;
+        }
+
+        @include respond-to(desktop) {
             width: auto;
             margin-right: $spacing-xxl;
         }
@@ -83,6 +103,12 @@
             flex-grow: 0;
             margin-right: $spacing-lg;
         }
+
+        @include respond-to(desktop) {
+            flex-grow: 0;
+            margin-right: $spacing-lg;
+        }
+
     }
 
     &__nav-link {
@@ -100,30 +126,331 @@
     }
 }
 
+
+
+.biography {
+    padding: $spacing-lg 0;
+
+   
+    
+    &__title {
+        margin-bottom: $mobile-padding-after-headline;
+
+        @include respond-to(tablet) {
+            margin-bottom: $desktop-padding-after-headline;
+        }
+        @include respond-to(desktop) {
+            margin-bottom: $desktop-padding-after-headline;
+        }
+
+    }
+
+    &__container {
+        @include respond-to(tablet) {
+            padding: 0 2rem;
+        }
+
+        @include respond-to(desktop) {
+            padding: 0 4rem;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        margin-bottom: $desktop-padding-between-components;
+
+        @include respond-to(tablet) {
+        margin-bottom: $desktop-padding-between-components;
+        // padding: 2rem;
+        }    
+        @include respond-to(desktop) {
+            margin-bottom: $desktop-padding-between-components;
+            }  
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+}
+
+    
+
+    &__quote {
+        margin-bottom: $spacing-xs;
+        
+        
+
+        &-text {
+            font-weight: $weight-bold;
+            
+        }
+
+    }
+
+    &__header {
+        font-weight: $weight-medium;
+        font-size: 1rem;
+    }
+
+
+    &__text-container {
+
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-md;
+
+        @include respond-to(tablet) {
+            display: flex;
+            flex-direction: row;
+            gap: $spacing-md;
+        }
+
+        @include respond-to(desktop) {
+            display: flex;
+            flex-direction: row;
+            gap: $spacing-md;
+        }
+    }
+
+    &__text {
+        flex: 1;
+        margin-bottom: $spacing-md;
+
+        @include respond-to(tablet) {
+            margin-bottom: 0;
+        }
+        @include respond-to(desktop) {
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+
+
 .photo-gallery {
+    margin: 1.5rem;
+
     &__title {
         margin-bottom: $spacing-lg;
     }
 
     &__grid {
         display: flex;
-        flex-wrap: wrap;
-        gap: $spacing-md;
-        justify-content: space-between;
+        flex-direction:column;
+     
+        gap: $spacing-xs;
+
+        @include respond-to(tablet) {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            padding: 0 2rem;
+        }
+        @include respond-to(desktop) {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            padding: 0 3rem;
+        }
+        
     }
 
     &__image {
-        width: calc(50% - #{$spacing-md} / 2);
+        width: 100%;
         margin-bottom: $spacing-md;
         object-fit: cover;
-        aspect-ratio: 1 / 1;
 
         @include respond-to(tablet) {
             width: calc(33.333% - #{$spacing-md} * 2 / 3);
+            margin-bottom: 0;
         }
 
         @include respond-to(desktop) {
             width: calc(33.333% - #{$spacing-md} * 2 / 3);
+            margin-bottom: 0;
         }
     }
+}
+
+
+.footer {
+    background-color: $color-bandsite-black;
+    color: $color-white;
+    padding: $spacing-lg 0;
+
+    &__container {
+        // position: relative;
+        margin: 0 $spacing-md;
+        display: flex;
+        flex-direction: column;
+
+        @include respond-to(tablet) {
+            margin: 0 $spacing-lg;
+        }
+        @include respond-to(desktop) {
+            margin: 0 $spacing-lg;
+        }
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        // align-items: left;
+        margin-bottom: $spacing-lg;
+        position: relative;
+        // text-align: left;
+
+        @include respond-to(tablet) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: $spacing-xl;
+        }
+
+        @include respond-to(desktop) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: $spacing-xl;
+        }
+    }
+
+    &__title {
+        font-size: 1.5rem;
+        font-weight: $weight-bold;
+        margin-bottom: $spacing-md;
+
+        @include respond-to(tablet) {
+            margin-bottom: 0;
+            
+        }
+        @include respond-to(desktop) {
+            margin-bottom: 0;
+            
+        }
+
+    }
+
+    &__social {
+        display: flex;
+        gap: $spacing-md;
+        margin-bottom: $spacing-lg;
+
+        @include respond-to(tablet) {
+            margin-bottom: 0;
+            margin-left: $spacing-md;
+            
+        }
+        @include respond-to(desktop) {
+            margin-bottom: 0;
+            margin-left: $spacing-md;
+            
+        }
+    }
+
+    &__social-link {
+        width: 1.5rem;
+        height: 1.5rem;
+        
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-lg;
+        margin-bottom: $spacing-lg;
+    
+
+        @include respond-to (tablet) {
+            flex-direction: row;
+                        gap: $spacing-xl;
+        }
+        @include respond-to (desktop) {
+            flex-direction: row;
+                        gap: $spacing-xl;
+        }
+    }
+
+    &__section {
+        text-align: left;
+
+        @include respond-to(tablet) {
+            flex: 1;
+        }
+        @include respond-to(desktop) {
+            flex: 1;
+        }
+    }
+
+    &__section-title {
+        font-size: 1rem;
+        font-weight: $weight-bold;
+        margin-bottom: $spacing-md;
+        // width: 1.5rem;
+    }
+
+    &__text {
+        margin-bottom: $spacing-xs;
+        font-size: 0.875rem;
+    }
+
+    &__email {
+        color: $color-white;
+        font-size: 0.875rem;
+        margin-top: $spacing-sm;
+        display: inline-block;
+
+    }
+
+    &__bottom {
+        margin-top: auto;
+    }
+
+    &__logo {
+        order: 1;
+        // display: block;
+        font-size: 1.5rem;
+        color: $color-white;
+        margin-bottom: $spacing-md;
+        // text-align: left;
+
+        @include respond-to(tablet) {
+            order: 0;
+            
+            top: 50%;
+            right: 0;
+            margin-bottom: 0;
+            transform: translateY(-50%);
+        }
+        @include respond-to(desktop) {
+            order: 0;
+            
+            top: 50%;
+            right: 0;
+            margin-bottom: 0;
+            transform: translateY(-50%);
+        }
+    }
+
+    &__copyright {
+        font-size: 0.875rem;
+        margin-top: $spacing-lg;
+
+        @include respond-to(tablet) {
+            text-align: left;
+            margin-top: $spacing-lg;
+            position: static;
+        }
+        @include respond-to(desktop) {
+            text-align: left;
+            margin-top: $spacing-lg;
+            position: static;
+        }
+    }
+
+
+    
 }

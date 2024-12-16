@@ -1,6 +1,4 @@
-// _mixins.scss
 
-// Media Query Mixin
 @mixin respond-to($breakpoint) {
     @if $breakpoint == mobile {
         @media (max-width: #{$breakpoint-mobile}) {
@@ -19,14 +17,21 @@
     }
 }
 
-// Flexbox Centering
+
+
+
+
 @mixin flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-// Typography Sizing
+
+
+
+
+
 @mixin typography($size, $weight, $line-height) {
     font-size: $size;
     font-weight: $weight;

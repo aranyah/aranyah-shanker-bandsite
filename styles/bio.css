@@ -202,4 +202,5 @@ a:hover {
   .photo-gallery__image {
     width: calc(33.333% - 2rem * 2 / 3);
   }
-}/*# sourceMappingURL=bio.css.map */
+}
+

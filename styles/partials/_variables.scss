@@ -1,6 +1,4 @@
-// _variables.scss
 
-// Colors
 $color-bandsite-black: #323232;
 $color-dark-black: #000000;
 $color-silver: #AFAFAF;
@@ -8,34 +6,39 @@ $color-white: #FFFFFF;
 $color-mercury: #E1E1E1;
 $color-alabaster: #FAFAFA;
 
-// Breakpoints
-$breakpoint-mobile: 47rem; // 767px
-$breakpoint-tablet: 48rem; // 768px
-$breakpoint-desktop: 80rem; // 1280px
 
-// Typography
+
 $font-primary: 'Nunito Sans', sans-serif;
 
-// Font Weights
+
+$breakpoint-mobile: 47rem; 
+$breakpoint-tablet: 48rem; 
+$breakpoint-desktop: 80rem; 
+
+
+
+
+
 $weight-regular: 400;
 $weight-medium: 500;
 $weight-bold: 700;
 
-// Spacing (in rem, based on 8px increments)
-$spacing-xs: 0.5rem;     // 4px
-$spacing-sm: 1rem;       // 8px
-$spacing-md: 2rem;       // 16px
-$spacing-lg: 3rem;       // 24px
-$spacing-xl: 5rem;       // 40px
-$spacing-xxl: 6.25rem;   // 50px
-$spacing-xxxl: 10rem;    // 80px
 
-// Mobile Padding
-$mobile-padding-before-headline: 1.5rem;  // 24px
-$mobile-padding-after-headline: 1rem;     // 16px
-$mobile-padding-between-components: 1rem; // 16px
+$spacing-xs: 8px;    
+$spacing-sm: 16px;      
+$spacing-md: 32px;       
+$spacing-lg: 48px;      
+$spacing-xl: 80px;       
+$spacing-xxl: 100px;   
+$spacing-xxxl: 160px;    
 
-// Desktop/Tablet Padding
-$desktop-padding-before-headline: 3rem;   // 48px
-$desktop-padding-after-headline: 2.25rem; // 36px
-$desktop-padding-between-components: 2.25rem; // 36px
+
+$mobile-padding-before-headline: 24px; 
+$mobile-padding-after-headline: 16px;     
+$mobile-padding-between-components: 16px;
+
+
+$desktop-padding-before-headline: 48px;   
+$desktop-padding-after-headline: 36px; 
+$desktop-padding-between-components: 36px; 
+
