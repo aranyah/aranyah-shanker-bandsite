@@ -1,4 +1,109 @@
+$color_1: #323232;
+$color_2: #FFFFFF;
+$color_3: #ABABAB;
+$background-color_1: #FAFAFA;
+$background-color_2: #323232;
+$background-color_3: #000000;
+$background-color_4: #E1E1E1;
 
+/* Add these styles to the existing bio.css file */
+.comments {
+	background-color: $background-color_1;
+	padding: 2rem 0;
+}
+.comments__title {
+	margin-bottom: 2rem;
+}
+.comments__form {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 2rem;
+	border-bottom: 1px solid #E1E1E1;
+	padding-bottom: 2rem;
+}
+.comments__input-wrapper {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 1rem;
+}
+.comments__label {
+	margin-bottom: 0.5rem;
+	font-weight: 700;
+	color: $color_1;
+}
+.comments__input {
+	padding: 0.75rem;
+	border: 1px solid #E1E1E1;
+	border-radius: 4px;
+}
+.comments__input--name {
+	height: 2.5rem;
+}
+.comments__input--comment {
+	min-height: 6rem;
+	resize: vertical;
+}
+.comments__button {
+	background-color: $background-color_2;
+	color: $color_2;
+	border: none;
+	padding: 0.75rem;
+	font-weight: 700;
+	border-radius: 4px;
+	align-self: flex-start;
+	margin-top: 1rem;
+	&:hover {
+		background-color: $background-color_3;
+	}
+}
+.comments__item {
+	display: flex;
+	border-bottom: 1px solid #E1E1E1;
+	padding: 1.5rem 0;
+}
+.comments__avatar {
+	width: 3rem;
+	height: 3rem;
+	background-color: $background-color_4;
+	border-radius: 50%;
+	margin-right: 1rem;
+}
+.comments__content {
+	flex-grow: 1;
+}
+.comments__header {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 1rem;
+}
+.comments__name {
+	font-weight: 700;
+}
+.comments__date {
+	color: $color_3;
+}
+.comments__text {
+	margin-bottom: 0;
+}
+@media (min-width: 48rem) {
+	.comments__form {
+		flex-direction: row;
+		align-items: flex-start;
+		gap: 1rem;
+	}
+	.comments__input-wrapper {
+		flex-grow: 1;
+	}
+	.comments__input--name {
+		max-width: 20rem;
+	}
+	.comments__button {
+		margin-top: 2rem;
+	}
+}
+
+
+// ------------------------------------------
 @import './partials/variables';
 @import './partials/mixins';
 @import './partials/global';
@@ -161,7 +266,6 @@
 
         @include respond-to(tablet) {
         margin-bottom: $desktop-padding-between-components;
-        // padding: 2rem;
         }    
         @include respond-to(desktop) {
             margin-bottom: $desktop-padding-between-components;
@@ -282,7 +386,6 @@
     padding: $spacing-lg 0;
 
     &__container {
-        // position: relative;
         margin: 0 $spacing-md;
         display: flex;
         flex-direction: column;
@@ -298,10 +401,8 @@
     &__header {
         display: flex;
         flex-direction: column;
-        // align-items: left;
         margin-bottom: $spacing-lg;
         position: relative;
-        // text-align: left;
 
         @include respond-to(tablet) {
             flex-direction: row;
@@ -389,7 +490,6 @@
         font-size: 1rem;
         font-weight: $weight-bold;
         margin-bottom: $spacing-md;
-        // width: 1.5rem;
     }
 
     &__text {
@@ -411,11 +511,9 @@
 
     &__logo {
         order: 1;
-        // display: block;
         font-size: 1.5rem;
         color: $color-white;
         margin-bottom: $spacing-md;
-        // text-align: left;
 
         @include respond-to(tablet) {
             order: 0;
