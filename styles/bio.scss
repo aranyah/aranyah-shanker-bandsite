@@ -2,9 +2,9 @@
 
 
 // ------------------------------------------
-@import './partials/variables';
-@import './partials/mixins';
-@import './partials/global';
+@use './partials/variables' as *;
+@use './partials/mixins' as *;
+@use './partials/global' as *;
 
 
 .hero {
@@ -33,21 +33,21 @@
         position: relative;
         color: $color-white;
 
-        @include respond-to(tablet) {
+        @include tablet {
             padding: 0 4rem ;
         }
 
-        @include respond-to(desktop) {
+        @include desktop {
             padding: 0 4rem ;
         }
 
     }
 
-    @include respond-to(tablet) {
+    @include tablet {
         height: 31.25rem; 
     }
 
-    @include respond-to(desktop) {
+    @include desktop {
         height: 43.75rem; 
     }
 }
@@ -61,13 +61,13 @@
         flex-direction: column;
         align-items: center;
 
-        @include respond-to(tablet) {
+        @include tablet {
             flex-direction: row;
             justify-content: flex-start;
             padding: $spacing-md;
         }
 
-        @include respond-to(desktop) {
+        @include desktop {
             flex-direction: row;
             justify-content: flex-start;
             padding: $spacing-md;
@@ -81,12 +81,12 @@
         width: 100%;
         text-align: center;
 
-        @include respond-to(tablet) {
+        @include tablet {
             width: auto;
             margin-right: $spacing-xxl;
         }
 
-        @include respond-to(desktop) {
+        @include desktop {
             width: auto;
             margin-right: $spacing-xxl;
         }
@@ -102,12 +102,12 @@
         flex-grow: 1;
         text-align: center;
 
-        @include respond-to(tablet) {
+        @include tablet {
             flex-grow: 0;
             margin-right: $spacing-lg;
         }
 
-        @include respond-to(desktop) {
+        @include desktop {
             flex-grow: 0;
             margin-right: $spacing-lg;
         }
@@ -139,21 +139,21 @@
     &__title {
         margin-bottom: $mobile-padding-after-headline;
 
-        @include respond-to(tablet) {
+        @include tablet {
             margin-bottom: $desktop-padding-after-headline;
         }
-        @include respond-to(desktop) {
+        @include desktop {
             margin-bottom: $desktop-padding-after-headline;
         }
 
     }
 
     &__container {
-        @include respond-to(tablet) {
+        @include tablet {
             padding: 0 2rem;
         }
 
-        @include respond-to(desktop) {
+        @include desktop {
             padding: 0 4rem;
         }
     }
@@ -162,10 +162,10 @@
         width: 100%;
         margin-bottom: $desktop-padding-between-components;
 
-        @include respond-to(tablet) {
+        @include tablet {
         margin-bottom: $desktop-padding-between-components;
         }    
-        @include respond-to(desktop) {
+        @include desktop {
             margin-bottom: $desktop-padding-between-components;
             }  
     }
@@ -201,13 +201,13 @@
         flex-direction: column;
         gap: $spacing-md;
 
-        @include respond-to(tablet) {
+        @include tablet {
             display: flex;
             flex-direction: row;
             gap: $spacing-md;
         }
 
-        @include respond-to(desktop) {
+        @include desktop {
             display: flex;
             flex-direction: row;
             gap: $spacing-md;
@@ -218,10 +218,10 @@
         flex: 1;
         margin-bottom: $spacing-md;
 
-        @include respond-to(tablet) {
+        @include tablet {
             margin-bottom: 0;
         }
-        @include respond-to(desktop) {
+        @include desktop {
             margin-bottom: 0;
         }
     }
@@ -243,14 +243,14 @@
      
         gap: $spacing-xs;
 
-        @include respond-to(tablet) {
+        @include tablet {
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: space-between;
             margin-bottom: 1.5rem;
             padding: 0 2rem;
         }
-        @include respond-to(desktop) {
+        @include desktop {
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: space-between;
@@ -265,12 +265,12 @@
         margin-bottom: $spacing-md;
         object-fit: cover;
 
-        @include respond-to(tablet) {
+        @include tablet {
             width: calc(33.333% - #{$spacing-md} * 2 / 3);
             margin-bottom: 0;
         }
 
-        @include respond-to(desktop) {
+        @include desktop {
             width: calc(33.333% - #{$spacing-md} * 2 / 3);
             margin-bottom: 0;
         }
@@ -301,7 +301,7 @@
 .comments__label {
 	margin-bottom: 0.5rem;
 	font-weight: 700;
-	color: $color_1;
+	color: $color-bandsite-black;
 }
 .comments__input {
 	padding: 0.75rem;
@@ -317,7 +317,7 @@
 }
 .comments__button {
 	background-color: $color-bandsite-black;
-	color: $color_2;
+	color: $color-dark-black;
 	border: none;
 	padding: 0.75rem;
 	font-weight: 700;
@@ -325,7 +325,7 @@
 	align-self: flex-start;
 	margin-top: 1rem;
 	&:hover {
-		background-color: $background-color_3;
+		background-color: $color-silver;
 	}
 }
 .comments__item {
@@ -352,7 +352,7 @@
 	font-weight: 700;
 }
 .comments__date {
-	color: $color_3;
+	color: $color-silver;
 }
 .comments__text {
 	margin-bottom: 0;
@@ -386,10 +386,10 @@
         display: flex;
         flex-direction: column;
 
-        @include respond-to(tablet) {
+        @include tablet {
             margin: 0 $spacing-lg;
         }
-        @include respond-to(desktop) {
+        @include desktop {
             margin: 0 $spacing-lg;
         }
     }
@@ -400,14 +400,14 @@
         margin-bottom: $spacing-lg;
         position: relative;
 
-        @include respond-to(tablet) {
+        @include tablet {
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
             margin-bottom: $spacing-xl;
         }
 
-        @include respond-to(desktop) {
+        @include desktop {
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
@@ -420,11 +420,11 @@
         font-weight: $weight-bold;
         margin-bottom: $spacing-md;
 
-        @include respond-to(tablet) {
+        @include tablet {
             margin-bottom: 0;
             
         }
-        @include respond-to(desktop) {
+        @include desktop {
             margin-bottom: 0;
             
         }
@@ -436,12 +436,12 @@
         gap: $spacing-md;
         margin-bottom: $spacing-lg;
 
-        @include respond-to(tablet) {
+        @include tablet {
             margin-bottom: 0;
             margin-left: $spacing-md;
             
         }
-        @include respond-to(desktop) {
+        @include desktop {
             margin-bottom: 0;
             margin-left: $spacing-md;
             
@@ -461,7 +461,7 @@
         margin-bottom: $spacing-lg;
     
 
-        @include respond-to (tablet) {
+        @include tablet {
             flex-direction: row;
                         gap: $spacing-xl;
         }
@@ -474,10 +474,10 @@
     &__section {
         text-align: left;
 
-        @include respond-to(tablet) {
+        @include tablet {
             flex: 1;
         }
-        @include respond-to(desktop) {
+        @include desktop {
             flex: 1;
         }
     }
@@ -511,7 +511,7 @@
         color: $color-white;
         margin-bottom: $spacing-md;
 
-        @include respond-to(tablet) {
+        @include tablet {
             order: 0;
             
             top: 50%;
@@ -519,7 +519,7 @@
             margin-bottom: 0;
             transform: translateY(-50%);
         }
-        @include respond-to(desktop) {
+        @include desktop {
             order: 0;
             
             top: 50%;
@@ -533,12 +533,12 @@
         font-size: 0.875rem;
         margin-top: $spacing-lg;
 
-        @include respond-to(tablet) {
+        @include tablet {
             text-align: left;
             margin-top: $spacing-lg;
             position: static;
         }
-        @include respond-to(desktop) {
+        @include desktop {
             text-align: left;
             margin-top: $spacing-lg;
             position: static;

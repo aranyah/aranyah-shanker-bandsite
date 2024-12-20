@@ -1,6 +1,6 @@
 
-@use 'variables' as *;
-@use 'mixins' as *;
+@use './variables' as *;
+@use './mixins' as *;
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;700&display=swap');
 
@@ -21,10 +21,10 @@ h1 {
     @include typography(2.25rem, $weight-bold, 2.125rem); 
     color: $color-white;
 
-    @include respond-to(tablet) {
+    @include tablet {
         @include typography(2.25rem, $weight-bold, 2rem); 
     }
-    @include respond-to(desktop) {
+    @include desktop {
         @include typography(2.25rem, $weight-bold, 2rem); 
     }
 }
@@ -33,10 +33,10 @@ h2 {
     @include typography(1.5rem, $weight-bold, 2rem); 
     margin-bottom: $spacing-md;
 
-    @include respond-to(tablet) {
+    @include tablet {
         @include typography(1.5rem, $weight-bold, 2rem); 
     }
-    @include respond-to(desktop) {
+    @include desktop {
         @include typography(1.5rem, $weight-bold, 2rem); 
     }
 }
@@ -45,11 +45,11 @@ p {
     @include typography(0.875rem, $weight-regular, 1.375rem); 
     margin-bottom: $spacing-md;
 
-    @include respond-to(tablet) {
+    @include tablet {
         @include typography(0.875rem, $weight-regular, 1.375rem); 
     }
 
-    @include respond-to(desktop) {
+    @include desktop {
         @include typography(0.875rem, $weight-regular, 1.375rem); 
     }
 }
@@ -59,11 +59,11 @@ p {
     width: 100%;
     max-width: 80rem;
     margin: 0 auto;
-    padding: 0 $spacing-md;
+    padding: 0 $spacing-sm;
 
-    @include respond-to(mobile) {
-        padding: 0 $spacing-sm;
-    }
+    // @include respond-to(mobile) {
+    //     padding: 0 $spacing-sm;
+    // }
 }
 
 
