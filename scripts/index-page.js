@@ -28,6 +28,11 @@ function createCommentElement(comment) {
   const avatarPlaceholder = document.createElement("div");
   avatarPlaceholder.classList.add("comments__avatar-image");
 
+  const avatarImg = document.createElement("img");
+  avatarImg.src = "./assets/images/placeholder.jpg"; // Add your placeholder image path
+  avatarImg.alt = "Avatar";
+  avatarImg.classList.add("comments__avatar-image");
+
   const contentDiv = document.createElement("div");
   contentDiv.classList.add("comments__content");
 
@@ -52,6 +57,7 @@ function createCommentElement(comment) {
   contentDiv.appendChild(textEl);
   avatarDiv.appendChild(avatarPlaceholder);
   commentEl.appendChild(avatarDiv);
+  avatarDiv.appendChild(avatarImg);
   commentEl.appendChild(contentDiv);
 
   return commentEl;

@@ -307,8 +307,13 @@
     }
 
     &__container {
-        max-width: $breakpoint-desktop;
-        margin: 0 auto;
+        @include tablet {
+            max-width: $breakpoint-desktop;
+            margin: 0 auto;
+            padding: 0 $spacing-lg;
+        }
+
+        
     }
 
     &__input-container {
@@ -333,10 +338,21 @@
     }
 
     &__form {
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-        gap: $spacing-sm;
+        // flex-grow: 1;
+        // display: flex;
+        // flex-direction: column;
+        // gap: $spacing-sm;
+        @include tablet {
+            display: flex;
+            flex-wrap: wrap;
+            gap: $spacing-sm;
+        }
+        button {
+            @include tablet {
+                width: auto;
+                margin-left: auto;
+            }
+        }
     }
 
     &__label {
@@ -384,13 +400,16 @@
         list-style-type: none;
         padding: 0;
         margin: 0;
+        border-top: 1px solid $color-mercury;
+
     }
 
     &__item {
         display: flex;
         gap: $spacing-md;
-        padding: $spacing-md 0;
+        padding: $spacing-lg 0;
         border-bottom: 1px solid $color-mercury;
+        list-style-type: none;
 
         &:last-child {
             border-bottom: none;
@@ -421,6 +440,34 @@
     &__text {
         @include typography(0.875rem, $weight-regular, 1.375rem);
         color: $color-bandsite-black;
+    }
+
+    &__form-group {
+        flex: 1 1 100%;
+        
+        @include tablet {
+            &--name {
+                flex: 1 1 100%;
+            }
+            
+            &--comment {
+                flex: 1 1 100%;
+            }
+        }
+    }
+
+    &__input-container {
+        @include tablet {
+            align-items: flex-start;
+            gap: $spacing-md;
+        }
+    }
+
+    &__avatar {
+        @include tablet {
+            width: 3rem;
+            height: 3rem;
+        }
     }
 }
 
