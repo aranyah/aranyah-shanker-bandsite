@@ -1,7 +1,6 @@
 
 
 
-// ------------------------------------------
 @use './partials/variables' as *;
 @use './partials/mixins' as *;
 @use './partials/global' as *;
@@ -52,82 +51,6 @@
     }
 }
 
-
-// .header {
-//     background-color: $color-bandsite-black;
-
-//     &__nav {
-//         display: flex;
-//         flex-direction: column;
-//         align-items: center;
-
-//         @include tablet {
-//             flex-direction: row;
-//             justify-content: flex-start;
-//             padding: $spacing-md;
-//         }
-
-//         @include desktop {
-//             flex-direction: row;
-//             justify-content: flex-start;
-//             padding: $spacing-md;
-//         }
-//     }
-
-//     &__logo {
-//         color: $color-white;
-//         font-weight: $weight-bold;
-//         padding: $spacing-md;
-//         width: 100%;
-//         text-align: center;
-
-//         @include tablet {
-//             width: auto;
-//             margin-right: $spacing-xxl;
-//         }
-
-//         @include desktop {
-//             width: auto;
-//             margin-right: $spacing-xxl;
-//         }
-//     }
-
-//     &__nav-list {
-//         display: flex;
-//         width: 100%;
-//         list-style: none;
-//     }
-
-//     &__nav-item {
-//         flex-grow: 1;
-//         text-align: center;
-
-//         @include tablet {
-//             flex-grow: 0;
-//             margin-right: $spacing-lg;
-//         }
-
-//         @include desktop {
-//             flex-grow: 0;
-//             margin-right: $spacing-lg;
-//         }
-
-//     }
-
-//     &__nav-link {
-//         display: block;
-//         color: $color-mercury;
-//         padding: $spacing-md 0;
-//         border-bottom: 0.1875rem solid transparent;
-//         transition: all 0.3s ease;
-
-//         &:hover,
-//         &--active {
-//             color: $color-white;
-//             border-bottom-color: $color-white;
-//         }
-//     }
-// }
 
 
 
@@ -190,11 +113,6 @@
             }  
     }
 
-//     &__content {
-//         display: flex;
-//         flex-direction: column;
-// }
-
     
 
     &__quote-text {
@@ -202,9 +120,7 @@
         font-weight: $weight-bold;
         line-height: 2rem;
         
-    // @include tablet {
 
-    // }
 
     }
 
@@ -298,7 +214,7 @@
 
 .comments {
     padding: $spacing-md $spacing-lg;
-    background-color: $color-white;
+
 
     &__title {
         @include typography(1.5rem, $weight-bold, 2rem);
@@ -307,6 +223,11 @@
     }
 
     &__container {
+
+        max-width: 63.75rem;
+        margin: 0 auto;
+        padding: 0 $spacing-md;
+
         @include tablet {
             max-width: $breakpoint-desktop;
             margin: 0 auto;
@@ -327,39 +248,63 @@
         width: 2.25rem;
         height: 2.25rem;
         flex-shrink: 0;
+        border-radius: 50%;
+        overflow: hidden; 
+        background-color: $color-mercury; 
         
         img, &-image {
             width: 100%;
             height: 100%;
-            border-radius: 50%;
-            background-color: $color-mercury;
             object-fit: cover;
+        }
+
+        @include tablet {
+            width: 2.25rem; 
+            height: 2.25rem;
         }
     }
 
     &__form {
-        // flex-grow: 1;
-        // display: flex;
-        // flex-direction: column;
-        // gap: $spacing-sm;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-sm;
+
         @include tablet {
-            display: flex;
+            flex-direction: row;
             flex-wrap: wrap;
-            gap: $spacing-sm;
+            align-items: flex-end;
         }
-        button {
+        &-group {
+            width: 100%;
+            margin-bottom: $spacing-md;
+            
             @include tablet {
-                width: auto;
-                margin-left: auto;
+                &--name {
+                    flex: 1;
+                }
+                
+                &--comment {
+                    flex: 1;
+                }
+                
+                &--button {
+                    width: auto;
+                    align-self: flex-end;
+                }
             }
         }
     }
+        
+        
+    
 
-    &__label {
-        @include typography(0.75rem, $weight-bold, 1.25rem);
-        color: $color-bandsite-black;
-        text-transform: uppercase;
-    }
+        &__label {
+            display: block;
+            margin-bottom: $spacing-xs;
+            @include typography(0.75rem, $weight-bold, 1.25rem);
+            color: $color-bandsite-black;
+        }
 
     &__input,
     &__textarea {
@@ -380,26 +325,27 @@
         resize: vertical;
     }
 
+
     &__submit {
         width: 100%;
+        margin-top: $spacing-sm;
         background-color: $color-bandsite-black;
         color: $color-white;
-        padding: $spacing-sm $spacing-md;
-        border: none;
         border-radius: 4px;
-        cursor: pointer;
-        @include typography(0.875rem, $weight-bold, 1.25rem);
-        text-transform: uppercase;
+        padding: $spacing-sm $spacing-md;
+        @include typography(0.875rem, $weight-bold, 1.375rem);
 
-        &:hover {
-            background-color: darken($color-bandsite-black, 10%);
+        @include tablet {
+            width: auto;
+            min-width: 9.375rem; 
+            margin-top: 0;
         }
     }
 
     &__list {
         list-style-type: none;
         padding: 0;
-        margin: 0;
+        margin-top: $spacing-lg;
         border-top: 1px solid $color-mercury;
 
     }
@@ -443,16 +389,11 @@
     }
 
     &__form-group {
-        flex: 1 1 100%;
+        width: 100%;
         
         @include tablet {
-            &--name {
-                flex: 1 1 100%;
-            }
-            
-            &--comment {
-                flex: 1 1 100%;
-            }
+            flex: 1;
+            margin-right: $spacing-md;
         }
     }
 
@@ -468,95 +409,6 @@
             width: 3rem;
             height: 3rem;
         }
-    }
-}
-
-
-
-.form {
-    &__field {
-        margin-bottom: $spacing-sm;
-
-    }
-
-    &__label {
-        display: block;
-        @include typography(0.75rem, $weight-bold, 1.25rem);
-        text-transform: uppercase;
-        color: $color-bandsite-black;
-        margin-bottom: $spacing-xs;
-    }
-
-    &__input,
-    &__textarea {
-        width: 100%;
-        padding: $spacing-sm;
-        border: 1px solid $color-mercury;
-        border-radius: 4px;
-        background-color: $color-alabaster;
-
-        &::placeholder {
-            color: $color-bandsite-black;
-        }
-    }
-
-    &__textarea {
-        min-height: 6.25rem;
-        resize: vertical;
-    }
-
-    &__submit {
-        background-color: $color-bandsite-black;
-        color: $color-white;
-        border: none;
-        border-radius: 4px;
-        padding: $spacing-sm $spacing-md;
-        @include typography(0.875rem, $weight-bold, 1.375rem);
-        cursor: pointer;
-        float: right;
-
-        &:hover {
-            background-color: darken($color-bandsite-black, 10%);
-        }
-    }
-}
-
-.comment {
-    display: flex;
-    gap: $spacing-sm;
-    padding: $spacing-sm 0;
-    border-bottom: 1px solid $color-mercury;
-
-    &__avatar {
-        width: 2.25rem;
-        height: 2.25rem;
-        border-radius: 50%;
-        background-color: $color-alabaster;
-        flex-shrink: 0;
-    }
-
-    &__content {
-        flex-grow: 1;
-    }
-
-    &__header {
-        @include flex-between;
-        margin-bottom: $spacing-xs;
-    }
-
-    &__name {
-        font-weight: $weight-bold;
-        color: $color-bandsite-black;
-    }
-
-    &__date {
-        color: $color-silver;
-        @include text-body;
-    }
-
-    &__text {
-        @include text-body;
-        color: $color-bandsite-black;
     }
 }
 

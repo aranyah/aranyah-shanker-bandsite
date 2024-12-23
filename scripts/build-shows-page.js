@@ -1,10 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Add SoundCloud player
   const heroPlayer = document.querySelector('.hero__player');
+
   const soundcloudEmbed = `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/252516215&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/queen-69312" title="Queen" target="_blank" style="color: #cccccc; text-decoration: none;">Queen</a> · <a href="https://soundcloud.com/queen-69312/dont-stop-me-now-remastered" title="Don&#x27;t Stop Me Now (Remastered 2011)" target="_blank" style="color: #cccccc; text-decoration: none;">Don&#x27;t Stop Me Now (Remastered 2011)</a></div>`;
   heroPlayer.innerHTML = soundcloudEmbed;
 
-  // Shows data array
   const showsData = [
       {
           date: 'Mon Sept 09 2024',
@@ -38,13 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
   ];
 
-  // Create shows section
   const createShowsSection = () => {
       const main = document.querySelector('.main');
       const showsSection = document.createElement('section');
       showsSection.className = 'shows';
 
-      // Create header
       const header = document.createElement('div');
       header.className = 'shows__header';
       const title = document.createElement('h2');
@@ -52,11 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
       title.textContent = 'Shows';
       header.appendChild(title);
 
-      // Create shows list container
       const showsList = document.createElement('div');
       showsList.className = 'shows__list';
 
-      // Create table headers
       const headerLabels = document.createElement('div');
       headerLabels.className = 'shows__item shows__item--header';
       ['DATE', 'VENUE', 'LOCATION'].forEach(label => {
@@ -67,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       showsList.appendChild(headerLabels);
 
-      // Create show items
       showsData.forEach(show => {
           const showItem = createShowItem(show);
           showsList.appendChild(showItem);
@@ -78,12 +72,10 @@ document.addEventListener('DOMContentLoaded', () => {
       main.appendChild(showsSection);
   };
 
-  // Create individual show item
   const createShowItem = (show) => {
       const item = document.createElement('div');
       item.className = 'shows__item';
 
-      // Create content groups
       const fields = [
           { label: 'DATE', value: show.date, class: 'date' },
           { label: 'VENUE', value: show.venue, class: 'venue-location' },
@@ -107,13 +99,11 @@ document.addEventListener('DOMContentLoaded', () => {
           item.appendChild(group);
       });
 
-      // Add ticket button
       const button = document.createElement('button');
       button.className = 'shows__tickets-btn';
       button.textContent = 'BUY TICKETS';
       item.appendChild(button);
 
-      // Add click handler for selected state
       item.addEventListener('click', () => {
           document.querySelectorAll('.shows__item').forEach(showItem => {
               showItem.classList.remove('shows__item--selected');

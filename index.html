@@ -130,33 +130,6 @@
       </section>
  
 
-      <!-- <section class="comments">
-        <h2 class="comments__title">Join the Conversation</h2>
-        <div class="comments__container">   
-            <div class="comment__input-container">
-                <div class="comments__avatar">
-                    <div class="comments__avatar-image"></div>
-                </div>
-                <form class="comments__form">
-                    <div class="comments__field">
-                        <label for="name" class="comments__label">NAME</label>
-                        <input type="text" id="name" class="comments__input" name="name" placeholder="Enter your name" required>
-                    </div>
-                    <div class="comments__field">
-                        <label for="comment" class="comments__label">COMMENT</label>
-                        <textarea id="comment" class="form__textarea" name="comment" placeholder="Add a new comment" required></textarea>
-                    </div>
-                    <div class="comments__button-container">
-                        <button type="submit" class="comments__submit">COMMENT</button>
-                    </div>
-                </form>
-            </div>
-        
-            <ul class="comments__list">
-                <Comments will be dynamically inserted here -->
-            <!-- </ul>
-        </div>
-    </section> --> 
 
     <section class="comments">
       <h2 class="comments__title">Join the Conversation</h2>
@@ -166,22 +139,23 @@
                   <img src="./assets/images/Mohan-muruge.jpg" alt="User Account profile picture" class="comments__avatar-img">
               </div>
               <form class="comments__form">
-                <div class="comments__form-group">
+                <div class="comments__form-group comments__form-group--name">
                     <label for="name" class="comments__label">NAME</label>
                     <input type="text" id="name" class="comments__input" name="name" placeholder="Enter your name" required>
                 </div>
                 
-                <div class="comments__form-group">
+                <div class="comments__form-group comments__form-group--name">
                     <label for="comment" class="comments__label">COMMENT</label>
                     <textarea id="comment" class="comments__textarea" name="comment" placeholder="Add a new comment" required></textarea>
                 </div>
                 
+                <div class="comments__form-group comments__form-group--name">
                 <button type="submit" class="comments__submit">COMMENT</button>
+                </div>
             </form>
           </div>
       
           <ul class="comments__list">
-              <!-- Comments will be dynamically inserted here -->
           </ul>
       </div>
   </section>
