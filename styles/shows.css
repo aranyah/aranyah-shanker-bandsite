@@ -102,6 +102,139 @@ a:hover {
   border: 0;
 }
 
+.header {
+  background-color: #323232;
+}
+.header__nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 48rem) {
+  .header__nav {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 2rem;
+  }
+}
+@media (min-width: 80rem) {
+  .header__nav {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 2rem;
+  }
+}
+.header__logo {
+  color: #FFFFFF;
+  font-weight: 700;
+  padding: 2rem;
+  width: 100%;
+  text-align: center;
+}
+@media (min-width: 48rem) {
+  .header__logo {
+    width: auto;
+    margin-right: 6.25rem;
+  }
+}
+@media (min-width: 80rem) {
+  .header__logo {
+    width: auto;
+    margin-right: 6.25rem;
+  }
+}
+.header__nav-list {
+  display: flex;
+  width: 100%;
+  list-style: none;
+}
+.header__nav-item {
+  flex-grow: 1;
+  text-align: center;
+}
+@media (min-width: 48rem) {
+  .header__nav-item {
+    flex-grow: 0;
+    margin-right: 3rem;
+  }
+}
+@media (min-width: 80rem) {
+  .header__nav-item {
+    flex-grow: 0;
+    margin-right: 3rem;
+  }
+}
+.header__nav-link {
+  display: block;
+  color: #E1E1E1;
+  padding: 2rem 0;
+  border-bottom: 0.1875rem solid transparent;
+  transition: all 0.3s ease;
+}
+.header__nav-link:hover, .header__nav-link--active {
+  color: #FFFFFF;
+  border-bottom-color: #FFFFFF;
+}
+
+.hero {
+  position: relative;
+  height: 25rem;
+  background-color: #323232;
+  background-image: url("/assets/images/hero-shows.jpg");
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  justify-content: left;
+  margin: 2rem;
+}
+.hero__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #323232;
+  opacity: 0.5;
+}
+.hero__album-title {
+  position: relative;
+  color: #FFFFFF;
+}
+@media (min-width: 48rem) {
+  .hero__album-title {
+    padding: 0 4rem;
+  }
+}
+@media (min-width: 80rem) {
+  .hero__album-title {
+    padding: 0 4rem;
+  }
+}
+.hero__title {
+  position: relative;
+  color: #FFFFFF;
+}
+@media (min-width: 48rem) {
+  .hero__title {
+    padding: 0 4rem;
+  }
+}
+@media (min-width: 80rem) {
+  .hero__title {
+    padding: 0 4rem;
+  }
+}
+@media (min-width: 48rem) {
+  .hero {
+    height: 31.25rem;
+  }
+}
+@media (min-width: 80rem) {
+  .hero {
+    height: 43.75rem;
+  }
+}
+
 .shows {
   background-color: #FAFAFA;
   padding: 3rem 0;
@@ -122,6 +255,7 @@ a:hover {
   flex-direction: column;
   background-color: #FFFFFF;
   border-bottom: 1px solid #AFAFAF;
+  margin: 2rem;
   padding: 2rem;
   gap: 1rem;
 }
@@ -130,6 +264,49 @@ a:hover {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+  }
+}
+@media (min-width: 80rem) {
+  .shows__item {
+    max-width: 70%;
+    margin: 0 auto;
+  }
+}
+.shows__label {
+  color: #AFAFAF;
+}
+.shows__label-secondary {
+  color: #AFAFAF;
+}
+@media (min-width: 48rem) {
+  .shows__label-secondary {
+    display: none;
+  }
+}
+@media (min-width: 80rem) {
+  .shows__label-secondary {
+    display: none;
+  }
+}
+.shows__label-primary {
+  display: none;
+}
+@media (min-width: 48rem) {
+  .shows__label-primary {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+@media (min-width: 80rem) {
+  .shows__label-primary {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 70%;
+    margin: 0 auto;
   }
 }
 .shows__date {
@@ -142,25 +319,16 @@ a:hover {
     min-width: 10rem;
   }
 }
-.shows__venue {
+.shows__venue-location {
   color: #000000;
   margin-bottom: 0.5rem;
 }
 @media (min-width: 48rem) {
-  .shows__venue {
+  .shows__venue-location {
     min-width: 15rem;
   }
 }
-.shows__location {
-  color: #E1E1E1;
-  margin-bottom: 0.5rem;
-}
-@media (min-width: 48rem) {
-  .shows__location {
-    min-width: 15rem;
-  }
-}
-.shows__tickets {
+.shows__tickets-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -171,7 +339,12 @@ a:hover {
   align-self: flex-start;
 }
 @media (min-width: 48rem) {
-  .shows__tickets {
+  .shows__tickets-btn {
     align-self: center;
+  }
+}
+@media (min-width: 80rem) {
+  .shows__tickets-btn {
+    padding: 2rem 3rem;
   }
 }/*# sourceMappingURL=shows.css.map */

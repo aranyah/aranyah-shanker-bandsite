@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Bees Knees - Shows</title>
-    <link rel="stylesheet" href="./styles/shows.css" />
-    <!-- <link rel="stylesheet" href="./styles/bio.css" /> -->
+    <link rel="stylesheet" href="../styles/shows.css" />
   </head>
   <body>
     <header class="header">
@@ -25,8 +24,14 @@
     <main class="main">
       <section class="hero">
         <div class="hero__overlay"></div>
-        <h1 class="hero__title">The Bees Knees Shows</h1>
+        <div class="hero__content">
+          <h3 class="hero__album-title">Beautiful Beasts Album</h3>
+          <h1 class="hero__title">Stripes of Yellow x For The Strings</h1>
+          <div class="hero__player"></div>
+        </div>
       </section>
+
+
 
       <section class="shows">
         <div class="shows__header">
@@ -34,58 +39,107 @@
         </div>
 
         <div class="shows__list">
-          <div class="shows__item">
-            <div class="shows__date">Mon Sept 09 2024</div>
-            <div class="shows__venue">Ronald Lane</div>
-            <div class="shows__location">San Francisco, CA</div>
-            <button class="shows__tickets-btn">BUY TICKETS</button>
-          </div>
-          <div class="shows__item">
-            <div class="shows__date">Tue Sept 17 2024</div>
-            <div class="shows__venue">Pier 3 East</div>
-            <div class="shows__location">San Francisco, CA</div>
-            <button class="shows__tickets-btn">BUY TICKETS</button>
-          </div>
-          <div class="shows__item">
-            <div class="shows__date">Sat Oct 12 2024</div>
-            <div class="shows__venue">View Lounge</div>
-            <div class="shows__location">San Francisco, CA</div>
-            <button class="shows__tickets-btn">BUY TICKETS</button>
-          </div>
-          <div class="shows__item">
-            <div class="shows__date">Sat Nov 16 2024</div>
-            <div class="shows__venue">Hyatt Agency</div>
-            <div class="shows__location">San Francisco, CA</div>
-            <button class="shows__tickets-btn">BUY TICKETS</button>
-          </div>
-          <div class="shows__item">
-            <div class="shows__date">Fri Nov 29 2024</div>
-            <div class="shows__venue">Moscow Center</div>
-            <div class="shows__location">San Francisco, CA</div>
-            <button class="shows__tickets-btn">BUY TICKETS</button>
-          </div>
-          <div class="shows__item">
-            <div class="shows__date">Wed Dec 18 2024</div>
-            <div class="shows__venue">Press Club</div>
-            <div class="shows__location">San Francisco, CA</div>
-            <button class="shows__tickets-btn">BUY TICKETS</button>
-          </div>
+
+        <div class="shows__item shows__item--header">
+          <div class="shows__label-primary">DATE</div>
+          <div class="shows__label-primary">VENUE</div>
+          <div class="shows__label-primary">LOCATION</div>
         </div>
 
-        <div class="shows__player">
-          <h3 class="shows__album-title">Beautiful Beasts Album</h3>
-          <div class="shows__track">
-            <span>Stripes of Yellow</span>
-            <span>x</span>
-            <span>For The Stings</span>
+          <div class="shows__item shows__item-content">
+            <div class="shows__content-group">
+                  <div class="shows__label">DATE</div>
+                  <div class="shows__date">Mon Sept 09 2024</div>
+                  </div>
+                  <div class="shows__content-group">
+                  <div class="shows__label">VENUE</div>
+                  <div class="shows__venue-location">Ronald Lane</div>
+                  </div>
+                  <div class="shows__content-group">
+                  <div class="shows__label">LOCATION</div>
+                  <div class="shows__venue-location">San Francisco, CA</div>
+                  </div>
+                  <button class="shows__tickets-btn">BUY TICKETS</button>
+            </div>
+            <div class="shows__item">
+              <div class="shows__content-group">
+                  <div class="shows__label-secondary">DATE</div>
+                  <div class="shows__date">Tue Sept 17 2024</div>
+                  </div>
+                  <div class="shows__content-group">
+                  <div class="shows__label-secondary">VENUE</div>
+                  <div class="shows__venue-location">Pier 3 East</div>
+                  </div>
+                  <div class="shows__content-group">
+                  <div class="shows__label-secondary">LOCATION</div>
+                  <div class="shows__venue-location">San Francisco, CA</div>
+                  </div>
+                  <button class="shows__tickets-btn">BUY TICKETS</button>
           </div>
-          
-          <!-- Or soundcloud goes here -->
-          <div id="soundcloud-player">
-<!-- I think I put the soundcloud here -->
+          <div class="shows__item">
+            <div class="shows__content-group">
+            <div class="shows__label-secondary">DATE</div>
+            <div class="shows__date">Sat Oct 12 2024</div>
+            </div>
+            <div class="shows__content-group">
+            <div class="shows__label-secondary">VENUE</div>
+            <div class="shows__venue-location">View Lounge</div>
+          </div>
+          <div class="shows__content-group">
+            <div class="shows__label-secondary">LOCATION</div>
+            <div class="shows__venue-location">San Francisco, CA</div>
+            </div>
+            <button class="shows__tickets-btn">BUY TICKETS</button>
+          </div>
+          <div class="shows__item">
+            <div class="shows__content-group">
+            <div class="shows__label-secondary">DATE</div>
+            <div class="shows__date">Sat Nov 16 2024</div>
+            </div>
+            <div class="shows__content-group">
+            <div class="shows__label-secondary">VENUE</div>
+            <div class="shows__venue-location">Hyatt Agency</div>
+            </div>
+            <div class="shows__content-group">
+            <div class="shows__label-secondary">LOCATION</div>
+            <div class="shows__venue-location">San Francisco, CA</div>
+            </div>
+            <button class="shows__tickets-btn">BUY TICKETS</button>
+          </div>
+          <div class="shows__item">
+            <div class="shows__content-group">
+            <div class="shows__label-secondary">DATE</div>
+            <div class="shows__date">Fri Nov 29 2024</div>
+            </div>
+            <div class="shows__content-group">
+            <div class="shows__label-secondary">VENUE</div>
+            <div class="shows__venue-location">Moscow Center</div>
+            </div>
+            <div class="shows__content-group">
+            <div class="shows__label-secondary">LOCATION</div>
+            <div class="shows__venue-location">San Francisco, CA</div>
+            </div>
+            <button class="shows__tickets-btn">BUY TICKETS</button>
+          </div>
+          <div class="shows__item">
+            <div class="shows__content-group">
+            <div class="shows__label-secondary">DATE</div>
+            <div class="shows__date">Wed Dec 18 2024</div>
+            </div>
+            <div class="shows__content-group">
+            <div class="shows__label-secondary">VENUE</div>
+            <div class="shows__venue-location">Press Club</div>
+            </div>
+            <div class="shows__content-group">
+            <div class="shows__label-secondary">LOCATION</div>
+            <div class="shows__venue-location">San Francisco, CA</div>
+            </div>
+            <button class="shows__tickets-btn">BUY TICKETS</button>
           </div>
         </div>
-      </section>
+</section>
+ 
+
     </main>
 
     <footer class="footer">
@@ -155,6 +209,6 @@
     </footer>
 
     <script src="https://w.soundcloud.com/player/api.js"></script>
-    <script src="./scripts/shows.js"></script>
+    <script src="./scripts/shows.js" defer></script>
   </body>
 </html>
