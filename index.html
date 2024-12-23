@@ -130,12 +130,12 @@
       </section>
  
 
-      <section class="comments">
+      <!-- <section class="comments">
         <h2 class="comments__title">Join the Conversation</h2>
         <div class="comments__container">   
             <div class="comment__input-container">
                 <div class="comments__avatar">
-                    <img src="./assets/images/Mohan-muruge.jpg" alt="" class="comments__avatar-img">
+                    <div class="comments__avatar-image"></div>
                 </div>
                 <form class="comments__form">
                     <div class="comments__field">
@@ -151,14 +151,36 @@
                     </div>
                 </form>
             </div>
-    
+        
             <ul class="comments__list">
-                <!-- Comments will be dynamically inserted here -->
-            </ul>
+                <Comments will be dynamically inserted here -->
+            <!-- </ul>
         </div>
-    </section>
+    </section> --> 
 
-
+    <section class="comments">
+      <h2 class="comments__title">Join the Conversation</h2>
+      <div class="comments__container">   
+          <div class="comments__input-container">
+              <div class="comments__avatar">
+                  <img src="./assets/images/Mohan-muruge.jpg" alt="User Account profile picture" class="comments__avatar-img">
+              </div>
+              <form class="comments__form">
+                  <label for="name" class="comments__label">NAME</label>
+                  <input type="text" id="name" class="comments__input" name="name" placeholder="Enter your name" required>
+                  
+                  <label for="comment" class="comments__label">COMMENT</label>
+                  <textarea id="comment" class="comments__textarea" name="comment" placeholder="Add a new comment" required></textarea>
+                  
+                  <button type="submit" class="comments__submit">COMMENT</button>
+              </form>
+          </div>
+      
+          <ul class="comments__list">
+              <!-- Comments will be dynamically inserted here -->
+          </ul>
+      </div>
+  </section>
 
 
     </main>

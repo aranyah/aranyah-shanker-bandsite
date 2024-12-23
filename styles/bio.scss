@@ -297,21 +297,13 @@
 }
 
 .comments {
-    padding: $spacing-sm;
+    padding: $spacing-md $spacing-lg;
     background-color: $color-white;
-    
-    @include tablet {
-        padding: $spacing-md $spacing-lg;
-    }
-
-    @include desktop {
-        padding: $spacing-lg $spacing-xl;
-    }
 
     &__title {
         @include typography(1.5rem, $weight-bold, 2rem);
         color: $color-bandsite-black;
-        margin: $spacing-lg;
+        margin-bottom: $spacing-md;
     }
 
     &__container {
@@ -323,57 +315,121 @@
         display: flex;
         gap: $spacing-md;
         margin-bottom: $spacing-lg;
+        align-items: flex-start;
+    }
 
-        @include tablet {
-            gap: $spacing-lg;
+    &__avatar {
+        width: 2.25rem;
+        height: 2.25rem;
+        flex-shrink: 0;
+        
+        img, &-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: $color-mercury;
+            object-fit: cover;
         }
     }
 
     &__form {
-        margin-bottom: $spacing-md;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-sm;
     }
 
-    // &__form-header {
-    //     @include flex-between;
-    //     gap: $spacing-sm;
-    //     align-items: flex-start;
-    // }
+    &__label {
+        @include typography(0.75rem, $weight-bold, 1.25rem);
+        color: $color-bandsite-black;
+        text-transform: uppercase;
+    }
 
-    &__avatar {
-        width: 2.25rem; // 36px
-        height: 2.25rem; // 36px
-        flex-shrink: 0;
-        margin-top: $spacing-md;
-        
-        img {
-            border-radius: 50%;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
+    &__input,
+    &__textarea {
+        width: 100%;
+        padding: $spacing-sm;
+        border: 1px solid $color-mercury;
+        border-radius: 4px;
+        background-color: $color-alabaster;
+        margin-bottom: $spacing-sm;
+
+        &::placeholder {
+            color: $color-bandsite-black;
         }
     }
 
-    &__form-fields {
-        flex-grow: 1;
+    &__textarea {
+        min-height: 6rem;
+        resize: vertical;
+    }
+
+    &__submit {
+        width: 100%;
+        background-color: $color-bandsite-black;
+        color: $color-white;
+        padding: $spacing-sm $spacing-md;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        @include typography(0.875rem, $weight-bold, 1.25rem);
+        text-transform: uppercase;
+
+        &:hover {
+            background-color: darken($color-bandsite-black, 10%);
+        }
     }
 
     &__list {
-        @include flex-column;
-        list-style: none;
+        list-style-type: none;
         padding: 0;
         margin: 0;
-        gap: $spacing-sm;
+    }
+
+    &__item {
+        display: flex;
+        gap: $spacing-md;
+        padding: $spacing-md 0;
+        border-bottom: 1px solid $color-mercury;
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    &__content {
+        flex-grow: 1;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: $spacing-xs;
+    }
+
+    &__name {
+        @include typography(0.875rem, $weight-bold, 1.25rem);
+        color: $color-bandsite-black;
+    }
+
+    &__date {
+        @include typography(0.875rem, $weight-regular, 1.25rem);
+        color: $color-silver;
+    }
+
+    &__text {
+        @include typography(0.875rem, $weight-regular, 1.375rem);
+        color: $color-bandsite-black;
     }
 }
+
+
 
 .form {
     &__field {
         margin-bottom: $spacing-sm;
 
-        // &:last-of-type {
-        //     margin-bottom: $spacing-md;
-        // }
     }
 
     &__label {
