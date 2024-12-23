@@ -157,16 +157,16 @@ a {
 
     
         &__nav-link {
-            display: inline-block; // Changed from block
+            display: inline-block; 
             color: $color-mercury;
             padding: $spacing-md 0;
             width: 100%;
-            position: relative; // Added
+            position: relative; 
             text-decoration: none;
             
             &:hover {
             color: $color-white;               
-                &::after { // New method for underline
+                &::after { 
                     content: '';
                     position: absolute;
                     bottom: 0;
@@ -180,7 +180,7 @@ a {
             &--active {
                 color: $color-white;
 
-                &::after { // New method for underline
+                &::after { 
                     content: '';
                     position: absolute;
                     bottom: 0;
