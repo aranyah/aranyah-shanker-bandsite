@@ -212,7 +212,7 @@
     }
 }
 
-.comments {
+.conversation {
     padding: $spacing-md $spacing-lg;
 
 
@@ -242,6 +242,11 @@
         gap: $spacing-md;
         margin-bottom: $spacing-lg;
         align-items: flex-start;
+
+                @include tablet {
+                    align-items: flex-start;
+                    gap: $spacing-md;
+                }
     }
 
     &__avatar {
@@ -270,36 +275,36 @@
         flex-direction: column;
         gap: $spacing-sm;
 
-        @include tablet {
-            flex-direction: row;
-            flex-wrap: wrap;
-            align-items: flex-end;
-        }
-        &-group {
-            width: 100%;
-            margin-bottom: $spacing-md;
-            
-            @include tablet {
-                &--name {
-                    flex: 1;
-                }
-                
-                &--comment {
-                    flex: 1;
-                }
-                
-                &--button {
-                    width: auto;
-                    align-self: flex-end;
-                }
+                                @include tablet {
+                                    flex-direction: row;
+                                    flex-wrap: wrap;
+                                    align-items: flex-end;
+                                }
+                                &-group {
+                                    width: 100%;
+                                    margin-bottom: $spacing-md;
+                                    
+                                    @include tablet {
+                                        &--name {
+                                            flex: 1;
+                                        }
+                                        
+                                        &--comment {
+                                            flex: 1;
+                                        }
+                                        
+                                        &--button {
+                                            width: auto;
+                                            align-self: flex-end;
+                                        }
+                                    }
+                                }
             }
-        }
-    }
         
         
     
 
-        &__label {
+    &__label {
             display: block;
             margin-bottom: $spacing-xs;
             @include typography(0.75rem, $weight-bold, 1.25rem);
@@ -350,7 +355,7 @@
 
     }
 
-    &__item {
+    &__entry {
         display: flex;
         gap: $spacing-md;
         padding: $spacing-lg 0;
@@ -397,18 +402,13 @@
         }
     }
 
-    &__input-container {
-        @include tablet {
-            align-items: flex-start;
-            gap: $spacing-md;
-        }
-    }
 
-    &__avatar {
-        @include tablet {
-            width: 3rem;
-            height: 3rem;
-        }
-    }
+
+    // &__avatar {
+    //     @include tablet {
+    //         width: 3rem;
+    //         height: 3rem;
+    //     }
+    // }
 }
 
