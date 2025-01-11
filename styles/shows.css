@@ -147,33 +147,176 @@ a:hover {
   display: flex;
   width: 100%;
   list-style: none;
+  margin: 0;
+  padding: 0;
+}
+@media (min-width: 48rem) {
+  .header__nav-list {
+    width: auto;
+  }
 }
 .header__nav-item {
-  flex-grow: 1;
+  flex: 1;
   text-align: center;
 }
 @media (min-width: 48rem) {
   .header__nav-item {
-    flex-grow: 0;
+    flex: none;
     margin-right: 3rem;
   }
 }
 @media (min-width: 80rem) {
   .header__nav-item {
-    flex-grow: 0;
+    flex: none;
     margin-right: 3rem;
   }
 }
 .header__nav-link {
-  display: block;
+  display: inline-block;
   color: #E1E1E1;
   padding: 2rem 0;
-  border-bottom: 0.1875rem solid transparent;
-  transition: all 0.3s ease;
+  width: 100%;
+  position: relative;
+  text-decoration: none;
 }
-.header__nav-link:hover, .header__nav-link--active {
+.header__nav-link:hover {
   color: #FFFFFF;
-  border-bottom-color: #FFFFFF;
+}
+.header__nav-link:hover::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1875rem;
+  background-color: #FFFFFF;
+}
+.header__nav-link--active {
+  color: #FFFFFF;
+}
+.header__nav-link--active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1875rem;
+  background-color: #FFFFFF;
+}
+
+.footer {
+  background-color: #323232;
+  color: #FFFFFF;
+  padding: 2rem 0;
+}
+@media (min-width: 48rem) {
+  .footer {
+    padding: 3rem 0;
+  }
+}
+.footer__container {
+  padding: 0 2rem;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+@media (min-width: 48rem) {
+  .footer__container {
+    padding: 0 3rem;
+  }
+}
+.footer__header {
+  position: relative;
+  margin-bottom: 2rem;
+}
+@media (min-width: 48rem) {
+  .footer__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+}
+.footer__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+@media (min-width: 48rem) {
+  .footer__title {
+    margin-bottom: 0;
+  }
+}
+.footer__social {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+@media (min-width: 48rem) {
+  .footer__social {
+    margin-bottom: 0;
+  }
+}
+.footer__social-link img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.footer__logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+@media (min-width: 48rem) {
+  .footer__logo {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-bottom: 0;
+  }
+}
+.footer__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 2rem;
+}
+@media (min-width: 48rem) {
+  .footer__content {
+    flex-direction: row;
+    gap: 3rem;
+  }
+}
+.footer__section-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.footer__text {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.375rem;
+  margin-bottom: 0.5rem;
+}
+.footer__email {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.375rem;
+  color: #FFFFFF;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+.footer__email:hover {
+  text-decoration: underline;
+}
+.footer__bottom {
+  margin-top: 3rem;
+}
+.footer__copyright {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.375rem;
 }
 
 .hero {
@@ -183,9 +326,10 @@ a:hover {
   background-image: url("/assets/images/hero-shows.jpg");
   background-size: cover;
   background-position: center;
-  align-items: center;
-  justify-content: left;
-  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
 }
 .hero__overlay {
   position: absolute;
@@ -193,45 +337,69 @@ a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #323232;
-  opacity: 0.5;
+  background-color: rgba(50, 50, 50, 0.5);
+}
+.hero__content {
+  position: relative;
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  z-index: 1;
+}
+@media (min-width: 48rem) {
+  .hero__content {
+    padding: 0 3rem;
+  }
 }
 .hero__album-title {
-  position: relative;
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  font-weight: 500;
   color: #FFFFFF;
+  margin-bottom: 1rem;
 }
 @media (min-width: 48rem) {
   .hero__album-title {
-    padding: 0 4rem;
-  }
-}
-@media (min-width: 80rem) {
-  .hero__album-title {
-    padding: 0 4rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-bottom: 2rem;
   }
 }
 .hero__title {
-  position: relative;
+  font-size: 1.75rem;
+  line-height: 2rem;
+  font-weight: 700;
   color: #FFFFFF;
+  margin-bottom: 3rem;
 }
 @media (min-width: 48rem) {
   .hero__title {
-    padding: 0 4rem;
+    font-size: 3.75rem;
+    line-height: 4.25rem;
+    margin-bottom: 5rem;
   }
 }
-@media (min-width: 80rem) {
-  .hero__title {
-    padding: 0 4rem;
-  }
+.hero__player {
+  width: 100%;
+  max-width: 50rem;
+  margin-top: 2rem;
+}
+.hero__player iframe {
+  width: 100%;
+  height: 18.75rem;
+  border-radius: 0.25rem;
+  background-color: rgba(50, 50, 50, 0.5);
 }
 @media (min-width: 48rem) {
   .hero {
     height: 31.25rem;
+    padding: 6.25rem 3rem;
   }
 }
 @media (min-width: 80rem) {
   .hero {
     height: 43.75rem;
+    padding: 10rem 3rem;
   }
 }
 
@@ -245,87 +413,93 @@ a:hover {
   line-height: 2rem;
   margin-bottom: 2rem;
   text-align: center;
+  padding: 0 2rem;
 }
 .shows__list {
   display: flex;
   flex-direction: column;
+  max-width: 80rem;
+  margin: 0 auto;
 }
 .shows__item {
   display: flex;
   flex-direction: column;
   background-color: #FFFFFF;
-  border-bottom: 1px solid #AFAFAF;
+  border-bottom: 0.0625rem solid #E1E1E1;
   margin: 2rem;
   padding: 2rem;
   gap: 1rem;
+  transition: background-color 0.3s ease;
+}
+.shows__item:hover {
+  background-color: #E1E1E1;
+}
+.shows__item--selected {
+  background-color: #323232;
+}
+.shows__item--selected .shows__date,
+.shows__item--selected .shows__venue-location,
+.shows__item--selected .shows__label-secondary {
+  color: #FFFFFF;
+}
+.shows__item--selected .shows__tickets-btn {
+  background-color: #FFFFFF;
+  color: #323232;
 }
 @media (min-width: 48rem) {
   .shows__item {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    padding: 2rem 3rem;
   }
-}
-@media (min-width: 80rem) {
-  .shows__item {
-    max-width: 70%;
-    margin: 0 auto;
-  }
-}
-.shows__label {
-  color: #AFAFAF;
 }
 .shows__label-secondary {
   color: #AFAFAF;
+  font-size: 0.875rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
 }
 @media (min-width: 48rem) {
-  .shows__label-secondary {
-    display: none;
-  }
-}
-@media (min-width: 80rem) {
   .shows__label-secondary {
     display: none;
   }
 }
 .shows__label-primary {
   display: none;
+  color: #AFAFAF;
+  font-size: 0.875rem;
+  font-weight: 700;
 }
 @media (min-width: 48rem) {
   .shows__label-primary {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-}
-@media (min-width: 80rem) {
-  .shows__label-primary {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 70%;
-    margin: 0 auto;
+    display: block;
   }
 }
 .shows__date {
   font-weight: 700;
-  color: #000000;
+  color: #323232;
   margin-bottom: 0.5rem;
 }
 @media (min-width: 48rem) {
   .shows__date {
     min-width: 10rem;
+    margin-bottom: 0;
   }
 }
 .shows__venue-location {
-  color: #000000;
+  color: #323232;
   margin-bottom: 0.5rem;
 }
 @media (min-width: 48rem) {
   .shows__venue-location {
-    min-width: 15rem;
+    min-width: 12rem;
+    margin-bottom: 0;
+  }
+}
+@media (min-width: 48rem) {
+  .shows__content-group {
+    margin-right: 2rem;
   }
 }
 .shows__tickets-btn {
@@ -334,17 +508,21 @@ a:hover {
   align-items: center;
   background-color: #323232;
   color: #FFFFFF;
-  padding: 1rem 2rem;
-  border-radius: 4px;
-  align-self: flex-start;
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
 }
 @media (min-width: 48rem) {
   .shows__tickets-btn {
-    align-self: center;
+    width: auto;
+    white-space: nowrap;
   }
 }
-@media (min-width: 80rem) {
-  .shows__tickets-btn {
-    padding: 2rem 3rem;
-  }
+.shows__tickets-btn:hover {
+  background-color: #E1E1E1;
+  color: #323232;
 }/*# sourceMappingURL=shows.css.map */
