@@ -8,7 +8,7 @@ class BandSiteApi {
         try {
             await axios.post(`${this.baseUrl}conversation${this.apiKey}`, commentData);
         } catch (error) {
-            console.error("Error posting comment:", error);
+            console.log(error);
     
         }
     }
