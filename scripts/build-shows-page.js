@@ -16,6 +16,19 @@ showsSection.className = 'shows';
 const showsHeader = document.createElement('div');
 showsHeader.classList.add('shows__table-header');
 
+
+const dateLabel = document.createElement('h3');
+dateLabel.classList.add("headerLabel", "headerLabel--tablet");
+dateLabel.innerText = "DATE";
+
+const venueLabel = document.createElement('h3');
+venueLabel.classList.add("headerLabel", "headerLabel--tablet");
+venueLabel.innerText = "VENUE";
+
+const locationLabel = document.createElement('h3');
+locationLabel.classList.add("headerLabel", "headerLabel--tablet");
+locationLabel.innerText = "LOCATION";
+
 // Use this as reference from index-js
 // const listElement = document.createElement("li");
 // listElement.classList.add("conversation__entry");
