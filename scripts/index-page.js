@@ -37,6 +37,8 @@ const conversationForm = document.querySelector(".conversation-form");
 // new scss class: content is header + comment text          
           const contentDiv = document.createElement("div");
           contentDiv.classList.add("conversation__content");
+
+
 // new scss class: header is username + date         
           const headerDiv = document.createElement("div");
           headerDiv.classList.add("conversation__header");
@@ -44,80 +46,91 @@ const conversationForm = document.querySelector(".conversation-form");
 // new scss class        
           const usernameElement = document.createElement("p");
           usernameElement.classList.add("conversation__username");
-          usernameElement.innerText = commentObj.name;
+          usernameElement.innerText = commentObjParam.name;
         
 // new scss class          
           const dateElement = document.createElement("span");
           dateElement.classList.add("conversation__date");
-          dateEl.textContent = comment.date;
+          dateElement.innerText = new Date(commentObjParam.timestamp).toLocaleDateString();
         
           const textEl = document.createElement("p");
           textEl.classList.add("conversation__text");
-          textEl.textContent = comment.text;
+          textEl.innerText = commentObjParam.comment;
 
-    avatarDiv.style.backgroundColor = "#E1E1E1";
+                                  // avatarDiv.style.backgroundColor = "#E1E1E1";
   
-    headerDiv.appendChild(nameEl);
-    headerDiv.appendChild(dateEl);
+    headerDiv.appendChild(usernameElement);
+    headerDiv.appendChild(dateElement);
+
     contentDiv.appendChild(headerDiv);
     contentDiv.appendChild(textEl);
-    commentEl.appendChild(avatarDiv);
-    commentEl.appendChild(contentDiv);
+
+    listElement.appendChild(avatarDiv);
+    listElement.appendChild(contentDiv);
   
-    return commentEl;
+
+    // okay so this adds the entire constructed comment to the conversation list on the page
+    conversationList.appendChild(listElement);
   }
   
 
-  function renderComments() {
-    const conversationList = document.querySelector(".conversation__list");
-    if (!conversationList) return;
-  
+// make comments live
+  async function renderConversation() {
+    try {
+      conversationList.replaceChildren();
+      let commentData = await bandSiteApi.getComments();
+      commentData.forEach((commentItem) => {
+        createConversationElement(commentItem);
+      });
+    }catch(error) {
+      console.error(error);
+    }}
 
-    while (conversationList.firstChild) {
-      conversationList.removeChild(conversationList.firstChild);
-    }
-  
+    renderConversation();
 
-    conversation.forEach((comment) => {
-      const commentElement = createCommentElement(comment);
-      conversationList.appendChild(commentElement);
-    });
-  }
-  
 
-  function initializeForm() {
-    const form = document.querySelector(".conversation__form"); 
-    if (!form) return;
+async function addConversation(commentObj){
+  try {
+     await bandSiteApi.postComment(commentObj);
+    conversationList.replaceChildren();
+    renderConversation();
+
+
+  }catch(error) {
+    console.error(error);
+  }}
+
+
+
   
-    form.addEventListener("submit", (event) => {
+    conversationForm.addEventListener("submit", (event) => {
       event.preventDefault();
   
-      const nameInput = document.getElementById("name");
-      const commentInput = document.getElementById("comment");
+      const nameInput = event.target.name.value;
+      const commentInput = event.target.comment.value;
   
       if (!nameInput || !commentInput) return;
   
 
-      const newComment = {
-        name: nameInput.value,
-        text: commentInput.value,
-        date: new Date().toLocaleDateString(),
+      let newComment = {
+        name: nameInput,
+        comment: commentInput
       };
   
       
-      conversation.unshift(newComment);
+      addConversation(newComment);
   
 
-      form.reset(); 
+      event.target.reset(); 
   
 
-      renderComments();
+      
     });
-  }
+  
   
 
   document.addEventListener("DOMContentLoaded", () => {
-    renderComments();
-    initializeForm();
+    renderConversation();
+   
   });
   
