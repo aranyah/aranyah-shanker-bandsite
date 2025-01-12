@@ -3,15 +3,14 @@ const bandSiteApi = new BandSiteApi(API_KEY);
 
 
 
-const showlistElement = document.querySelector(".shows__list");
+const showlistTable = document.querySelector(".shows__list");
 // const main = document.querySelector('.main');
 
 
 
 
 
-const showsSection = document.createElement('section');
-showsSection.className = 'shows';
+
 
 const showsHeader = document.createElement('div');
 showsHeader.classList.add('shows__table-header');
@@ -29,9 +28,42 @@ const locationLabel = document.createElement('h3');
 locationLabel.classList.add("headerLabel", "headerLabel--tablet");
 locationLabel.innerText = "LOCATION";
 
-// Use this as reference from index-js
-// const listElement = document.createElement("li");
-// listElement.classList.add("conversation__entry");
+// This is the button header for the buy Tickets column which doesnt have any header title but we need something to occupy its space in the meantime
+const missingButtonHeader = document.createElement('div');
+missingButtonHeader.classList.add("headerLabel", "headerLabel--tablet");
+
+
+
+
+missingButtonHeader.appendChild(showsHeader);
+locationLabel.appendChild(showsHeader);
+venueLabel.appendChild(showsHeader);
+dateLabel.appendChild(showsHeader);
+showsHeader.appendChild(showlistTable);
+
+
+// Copying from my index-js file
+async function renderConversation() {
+    try {
+      conversationList.replaceChildren();
+      let commentData = await bandSiteApi.getComments();
+      commentData.forEach((commentItem) => {
+        createConversationElement(commentItem);
+      });
+    }catch(error) {
+      console.error(error);
+    }}
+
+    renderConversation();
+
+
+
+
+
+// ===============================================================================================================================================================
+
+// const showsSection = document.createElement('section');
+// showsSection.className = 'shows';
 
 
 const showsList = document.createElement('div');
@@ -50,7 +82,8 @@ headerLabels.className = 'shows__item shows__item--header';
 // document.addEventListener('DOMContentLoaded', () => {
 //   const heroPlayer = document.querySelector('.hero__player');
 
-//   const soundcloudEmbed = `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/252516215&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 0.625rem; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/queen-69312" title="Queen" target="_blank" style="color: #cccccc; text-decoration: none;">Queen</a> · <a href="https://soundcloud.com/queen-69312/dont-stop-me-now-remastered" title="Don&#x27;t Stop Me Now (Remastered 2011)" target="_blank" style="color: #cccccc; text-decoration: none;">Don&#x27;t Stop Me Now (Remastered 2011)</a></div>`;
+//   const soundcloudEmbed = `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" 
+// src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/252516215&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 0.625rem; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/queen-69312" title="Queen" target="_blank" style="color: #cccccc; text-decoration: none;">Queen</a> · <a href="https://soundcloud.com/queen-69312/dont-stop-me-now-remastered" title="Don&#x27;t Stop Me Now (Remastered 2011)" target="_blank" style="color: #cccccc; text-decoration: none;">Don&#x27;t Stop Me Now (Remastered 2011)</a></div>`;
 //   heroPlayer.innerHTML = soundcloudEmbed;
 
 
@@ -107,9 +140,7 @@ headerLabels.className = 'shows__item shows__item--header';
           showsList.appendChild(showItem);
       });
 
-      showsSection.appendChild(header);
-      showsSection.appendChild(showsList);
-      main.appendChild(showsSection);
+      
   };
 
   const createShowItem = (show) => {
