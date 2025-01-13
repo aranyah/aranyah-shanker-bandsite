@@ -1,10 +1,52 @@
 const API_KEY = "8fd3018e-f075-45f1-b31a-024ab1909a89";   
 const bandSiteApi = new BandSiteApi(API_KEY);
 
-
-
 const showlistTable = document.querySelector(".shows__list");
-// const main = document.querySelector('.main');
+
+async function renderShowList() {
+    try {
+        const showTable = await bandSiteApi.getShows();
+            // this is for the mobile format of each item getting a label
+            showTable.forEach((newShowParam) => {
+
+                const mobileShowCard = document.createElement('li');
+                mobileShowCard.classList.add("shows__item");
+
+                const dateBox = document.createElement('div');
+                dateBox.classList.add("shows__content-group");
+
+                const venueBox = document.createElement('div');
+                venueBox.classList.add("shows__content-group");
+
+                const locationBox = document.createElement('div');
+                locationBox.classList.add("shows__content-group");
+
+                const buttonBox = document.createElement('div');
+                buttonBox.classList.add("button");
+
+                const datelabel = document.createElement('h3');
+                dateLabel.classList.add("headerLabel", "headerLabel-mobile");
+                dateLabel.innerText = "DATES";
+
+                const venuelabel = document.createElement('h3');
+                venueLabel.classList.add("headerLabel", "headerLabel-mobile");
+                venueLabel.innerText = "VENUE";
+
+                const locationlabel = document.createElement('h3');
+                locationLabel.classList.add("headerLabel", "headerLabel-mobile");
+                locationLabel.innerText = "LOCATION";
+
+                const dateData = document.createElement('p');
+                dateData.classList.add("shows__date");
+                dateData.innerText = convertDate(newShowParam.date);
+
+                const venueData = document.createElement('p');
+                venueData.classList.add("shows__venue");
+                venueData.innerText = convertDate(newShowParam.date);
+
+                const locationData = document.createElement('p');
+                locationData.classList.add("shows__date");
+                locationData.innerText = convertDate(newShowParam.date);
 
 
 
@@ -12,6 +54,44 @@ const showlistTable = document.querySelector(".shows__list");
 
 
 
+
+                showlistTable.appendChild()
+
+
+
+
+
+                    group.className = 'shows__content-group';
+
+                    const label = document.createElement('div');
+                    label.className = 'shows__label-secondary';
+                    label.textContent = field.label;
+
+                    const value = document.createElement('div');
+                    value.className = `shows__${field.class}`;
+                    value.textContent = field.value;
+
+                    group.appendChild(label);
+                    group.appendChild(value);
+                    item.appendChild(group);
+            }
+        
+        
+        
+        
+        
+        )
+
+
+
+        // ===============================================================================================================================================================
+
+
+// search for the box for the entire show list table
+
+
+
+// tablet headers (one row)
 const showsHeader = document.createElement('div');
 showsHeader.classList.add('shows__table-header');
 
@@ -29,32 +109,19 @@ locationLabel.classList.add("headerLabel", "headerLabel--tablet");
 locationLabel.innerText = "LOCATION";
 
 // This is the button header for the buy Tickets column which doesnt have any header title but we need something to occupy its space in the meantime
-const missingButtonHeader = document.createElement('div');
-missingButtonHeader.classList.add("headerLabel", "headerLabel--tablet");
+const blankBtnHeader = document.createElement('div');
+blankBtnHeader.classList.add("headerLabel", "headerLabel--tablet");
 
 
 
 
-missingButtonHeader.appendChild(showsHeader);
+blankBtnHeader.appendChild(showsHeader);
 locationLabel.appendChild(showsHeader);
 venueLabel.appendChild(showsHeader);
 dateLabel.appendChild(showsHeader);
 showsHeader.appendChild(showlistTable);
 
 
-// Copying from my index-js file
-async function renderConversation() {
-    try {
-      conversationList.replaceChildren();
-      let commentData = await bandSiteApi.getComments();
-      commentData.forEach((commentItem) => {
-        createConversationElement(commentItem);
-      });
-    }catch(error) {
-      console.error(error);
-    }}
-
-    renderConversation();
 
 
 
@@ -154,20 +221,7 @@ headerLabels.className = 'shows__item shows__item--header';
       ];
 
       fields.forEach(field => {
-          const group = document.createElement('div');
-          group.className = 'shows__content-group';
-
-          const label = document.createElement('div');
-          label.className = 'shows__label-secondary';
-          label.textContent = field.label;
-
-          const value = document.createElement('div');
-          value.className = `shows__${field.class}`;
-          value.textContent = field.value;
-
-          group.appendChild(label);
-          group.appendChild(value);
-          item.appendChild(group);
+          
       });
 
       const button = document.createElement('button');
