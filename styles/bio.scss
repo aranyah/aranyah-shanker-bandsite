@@ -56,7 +56,7 @@
 
 .biography {
     margin: $spacing-lg;
-    @include flex-column(column, normal, normal);
+    @include flexcustom(column, normal, normal);
 
     @include tablet {
         gap: $spacing-sm;

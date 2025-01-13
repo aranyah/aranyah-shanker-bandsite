@@ -204,6 +204,49 @@ a:hover {
   background-color: #FFFFFF;
 }
 
+.logo--navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.logo--footer-upper {
+  display: none;
+}
+@media (min-width: 48rem) {
+  .logo--footer-upper {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    display: inline-block;
+    width: 7.5rem;
+    height: 1.25rem;
+    background-image: url("../assets/logos/Logo-bandsite.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+.logo--footer-bottom {
+  margin-top: 1rem;
+  width: 7.5rem;
+  height: 1.25rem;
+  background-image: url("../assets/logos/Logo-bandsite.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media (min-width: 48rem) {
+  .logo--footer-bottom {
+    display: none;
+  }
+}
+.logo__link {
+  width: 7.5rem;
+  height: 1.25rem;
+  background-image: url("../assets/logos/Logo-bandsite.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .footer {
   background-color: #323232;
   color: #FFFFFF;
