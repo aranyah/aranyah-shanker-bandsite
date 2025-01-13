@@ -106,34 +106,34 @@ async function renderShowList() {
 
 
 // tablet headers (one row)
-const showsHeader = document.createElement('div');
-showsHeader.classList.add('shows__table-header');
+// const showsHeader = document.createElement('div');
+// showsHeader.classList.add('shows__table-header');
 
 
-const dateLabel = document.createElement('h3');
-dateLabel.classList.add("headerLabel", "headerLabel--tablet");
-dateLabel.innerText = "DATE";
+// const dateLabel = document.createElement('h3');
+// dateLabel.classList.add("headerLabel", "headerLabel--tablet");
+// dateLabel.innerText = "DATE";
 
-const venueLabel = document.createElement('h3');
-venueLabel.classList.add("headerLabel", "headerLabel--tablet");
-venueLabel.innerText = "VENUE";
+// const venueLabel = document.createElement('h3');
+// venueLabel.classList.add("headerLabel", "headerLabel--tablet");
+// venueLabel.innerText = "VENUE";
 
-const locationLabel = document.createElement('h3');
-locationLabel.classList.add("headerLabel", "headerLabel--tablet");
-locationLabel.innerText = "LOCATION";
+// const locationLabel = document.createElement('h3');
+// locationLabel.classList.add("headerLabel", "headerLabel--tablet");
+// locationLabel.innerText = "LOCATION";
 
-// This is the button header for the buy Tickets column which doesnt have any header title but we need something to occupy its space in the meantime
-const blankBtnHeader = document.createElement('div');
-blankBtnHeader.classList.add("headerLabel", "headerLabel--tablet");
-
-
+// // This is the button header for the buy Tickets column which doesnt have any header title but we need something to occupy its space in the meantime
+// const blankBtnHeader = document.createElement('div');
+// blankBtnHeader.classList.add("headerLabel", "headerLabel--tablet");
 
 
-blankBtnHeader.appendChild(showsHeader);
-locationLabel.appendChild(showsHeader);
-venueLabel.appendChild(showsHeader);
-dateLabel.appendChild(showsHeader);
-showsHeader.appendChild(showlistTable);
+
+
+// blankBtnHeader.appendChild(showsHeader);
+// locationLabel.appendChild(showsHeader);
+// venueLabel.appendChild(showsHeader);
+// dateLabel.appendChild(showsHeader);
+// showsHeader.appendChild(showlistTable);
 
 
 
