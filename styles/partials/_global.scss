@@ -1,377 +1,358 @@
-
-@use './variables' as *;
-@use './mixins' as *;
-
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;700&display=swap');
+@use "./variables" as *;
+@use "./mixins" as *;
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+li,
+form,
+input,
+textarea {
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: $font-primary;
-    color: $color-bandsite-black;
-    line-height: 1.5;
+  font-family: $font-primary;
+  color: $color-bandsite-black;
+  line-height: 1.5;
 }
 
-
 h1 {
-    @include typography(2.25rem, $weight-bold, 2.125rem); 
-    color: $color-white;
+  @include typography(2.25rem, $weight-bold, 2.125rem);
+  color: $color-white;
 
-    @include tablet {
-        @include typography(2.25rem, $weight-bold, 2rem); 
-    }
-    @include desktop {
-        @include typography(2.25rem, $weight-bold, 2rem); 
-    }
+  @include tablet {
+    @include typography(2.25rem, $weight-bold, 2rem);
+  }
+  @include desktop {
+    @include typography(2.25rem, $weight-bold, 2rem);
+  }
 }
 
 h2 {
-    @include typography(1.5rem, $weight-bold, 2rem); 
-    margin-bottom: $spacing-md;
+  @include typography(1.5rem, $weight-bold, 2rem);
+  margin-bottom: $spacing-md;
 
-    @include tablet {
-        @include typography(1.5rem, $weight-bold, 2rem); 
-    }
-    @include desktop {
-        @include typography(1.5rem, $weight-bold, 2rem); 
-    }
+  @include tablet {
+    @include typography(1.5rem, $weight-bold, 2rem);
+  }
+  @include desktop {
+    @include typography(1.5rem, $weight-bold, 2rem);
+  }
 }
 
 p {
-    @include typography(0.875rem, $weight-regular, 1.375rem); 
-    margin-bottom: $spacing-md;
+  @include typography(0.875rem, $weight-regular, 1.375rem);
+  margin-bottom: $spacing-md;
 
-    @include tablet {
-        @include typography(0.875rem, $weight-regular, 1.375rem); 
-    }
+  @include tablet {
+    @include typography(0.875rem, $weight-regular, 1.375rem);
+  }
 
-    @include desktop {
-        @include typography(0.875rem, $weight-regular, 1.375rem); 
-    }
+  @include desktop {
+    @include typography(0.875rem, $weight-regular, 1.375rem);
+  }
 }
-
 
 .container {
-    width: 100%;
-    max-width: 80rem;
-    margin: 0 auto;
-    padding: 0 $spacing-sm;
-
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 $spacing-sm;
 }
-
 
 a {
-    text-decoration: none;
-    color: $color-mercury;
-    transition: color 0.3s ease;
+  text-decoration: none;
+  color: $color-mercury;
+  transition: color 0.3s ease;
 
-    &:hover {
-        color: $color-white;
-    }
+  &:hover {
+    color: $color-white;
+  }
 }
-
-
-.visually-hidden {
-    position: absolute;
-    width: 0.0625rem;
-    height: 0.0625rem;
-    padding: 0;
-    margin: -0.0625rem;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
-
 
 .header {
-    background-color: $color-bandsite-black;
+  background-color: $color-bandsite-black;
+  @include flexcustom(column, normal, normal);
+  padding-top: $mobile-padding-before-headline;
+
+  @include tablet {
+    @include flexcustom(row, normal, center);
+    gap: calc($spacing-xs * 3.5);
+    padding: 0 0 0 $spacing-md;
+  }
+
+  @include desktop {
+    padding: 0 0 0 $spacing-xl;
+  }
 }
 
 .navbar {
-    &__nav {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+  &__items {
+    @include flexcustom(row, space-around, normal);
+    height: 2.5rem;
+    list-style-type: none;
 
-        @include tablet {
-            flex-direction: row;
-            justify-content: flex-start;
-            padding: $spacing-md;
-        }
-
-        @include desktop {
-            flex-direction: row;
-            justify-content: flex-start;
-            padding: $spacing-md;
-        }
+    @include tablet {
+      gap: calc($spacing-xs * 3.5);
+      height: 4rem;
     }
 
-    // &__logo {
-    //     color: $color-white;
-    //     font-weight: $weight-bold;
-    //     padding: $spacing-md;
-    //     width: 100%;
-    //     text-align: center;
+    @include desktop {
+      height: 5rem;
+    }
+  }
 
-    //     @include tablet {
-    //         width: auto;
-    //         margin-right: $spacing-xxl;
-    //     }
+  &__tab {
+    @include flexcustom(row, center, center);
+    width: 100%;
 
-    //     @include desktop {
-    //         width: auto;
-    //         margin-right: $spacing-xxl;
-    //     }
-    // }
+    &--active {
+      border-top: 3px transparent solid;
+      border-bottom: 3px $color-white solid;
+      color: $color-white;
+      font-weight: $weight-medium;
 
-    &__items {
-        @include flexcustom(row, space-around, normal);
-        height: 2.5rem;
-        list-style-type: none;
-
-        @include tablet {
-            gap: calc($spacing-xsm * 3.5);
-            height: 4rem;
-        }
-
-        @include desktop {
-            height: 5rem;
-        }
+      & .nav__link {
+        color: $color-white;
+      }
     }
 
-    &__tab {
-        flex: 1;
-        text-align: center;
-        width: 100%;
-
-        &--active {
-            border-top: 3px transparent solid;
-            border-bottom: 3px $primary-color-white solid;
-            color: $primary-color-white;
-            font-weight: $font-weight-demi;
-
-            & .nav__link {
-                color: $primary-color-white;
-            }
-        }
-
-        &:hover {
-            border-top: 3px transparent solid;
-            border-bottom: 3px $primary-color-white solid;
-            color: $primary-color-white;
-        }
-
-
-        &:active .nav__link {
-            font-weight: $font-weight-demi;
-        }
+    &:hover {
+      border-top: 3px transparent solid;
+      border-bottom: 3px $color-white solid;
+    }
+    &:hover .nav__link {
+      color: $color-white;
     }
 
-
-
-        @include tablet {
-            flex: none;
-            margin-right: $spacing-lg;
-        }
-
-        @include desktop {
-            flex: none;
-            margin-right: $spacing-lg;
-        }
-
+    &:active .nav__link {
+      font-weight: $weight-medium;
     }
+  }
 
-    
-        &__nav-link {
-            display: inline-block; 
-            color: $color-mercury;
-            padding: $spacing-md 0;
-            width: 100%;
-            position: relative; 
-            text-decoration: none;
-            
-            &:hover {
-            color: $color-white;               
-                &::after { 
-                    content: '';
-                    position: absolute;
-                    bottom: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 0.1875rem;
-                    background-color: $color-white;
-                }
-            }
-
-            &--active {
-                color: $color-white;
-
-                &::after { 
-                    content: '';
-                    position: absolute;
-                    bottom: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 0.1875rem;
-                    background-color: $color-white;
-        }
-    }
+  &__link {
+    color: $color-mercury;
+    text-decoration: none;
+  }
 }
+
+.headerLabel {
+  color: $color-white;
+  font-weight: $weight-medium;
+  line-height: 1.25rem;
+
+  &--mobile {
+    margin-bottom: 0.5rem;
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &--tablet {
+    display: none;
+    @include tablet {
+      @include flexcustom(row, flex-start, center);
+      flex: 1;
+      max-width: 33%;
+    }
+  }
+}
+
+.button {
+  @include flexcustom(column, center, center);
+  padding: 0 $spacing-md;
+  min-width: 9.375rem;
+  height: 40px;
+  border-radius: 4px;
+  background-color: $color-bandsite-black;
+  font-weight: $weight-medium;
+  line-height: 1.125rem;
+  color: $color-white;
+
+  @include tablet {
+    @include flexcustom(row, center, center);
+    flex: 1;
+    max-width: 25%;
+  }
+
+  &:hover {
+    background-color: $color-bandsite-black;
+  }
 }
 
 .logo {
-    &--navbar {
-        @include flexcustom(row, center, center);
-    }
+  &--navbar {
+    @include flexcustom(row, center, center);
+  }
 
-    &--footer-upper {
-        display: none;
-
-        @include tablet {
-            position: absolute;
-            top: 10px;
-            right: 0;
-            display: inline-block;
-            width: 7.5rem;
-            height: 1.25rem;
-            @include logo;
-        }
-    }
-
-    &--footer-bottom {
-        margin-top: $spacing-sm;
-        width: 7.5rem;
-        height: 1.25rem;
-        @include logo;
-
-        @include tablet {
-            display: none;
-        }
-    }
-
-    &__link {
-        width: 7.5rem;
-        height: 1.25rem;
-        @include logo;
-    }
-}
-
-
-.footer {
-    background-color: $color-bandsite-black;
-    color: $color-white;
-    padding: $spacing-md 0;
+  &--footer-tablet {
+    display: none;
 
     @include tablet {
-        padding: $spacing-lg 0;
+      position: absolute;
+      top: 10px;
+      right: 0;
+      display: inline-block;
+      width: 7.5rem;
+      height: 1.25rem;
+      @include logo;
     }
+  }
 
-    &__container {
-        padding: 0 $spacing-md;
-        max-width: $breakpoint-desktop;
-        margin: 0 auto;
+  &--footer-mobile {
+    margin-top: $spacing-sm;
+    width: 7.5rem;
+    height: 1.25rem;
+    @include logo;
 
-        @include tablet {
-            padding: 0 $spacing-lg;
-        }
+    @include tablet {
+      display: none;
     }
+  }
 
-    &__header {
-        position: relative;
-        margin-bottom: $spacing-md;
+  &__link {
+    width: 7.5rem;
+    height: 1.25rem;
+    @include logo;
+  }
+}
 
-        @include tablet {
-            @include flex-between;
-            margin-bottom: $spacing-lg;
-        }
+.hero {
+  position: relative;
+  @include flexcustom(column, center, normal);
+  gap: $spacing-xs;
+  padding: 0 $spacing-xs;
+
+  @include tablet {
+    padding: 0 $spacing-md;
+  }
+
+  @include desktop {
+    padding: 0 $spacing-xl;
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $color-bandsite-black;
+    opacity: 50%;
+  }
+
+  &__title {
+    position: relative;
+    z-index: 1;
+    color: $color-white;
+  }
+}
+
+.footer {
+  background-color: $color-bandsite-black;
+  gap: $spacing-md;
+  padding: $spacing-sm $spacing-xs;
+  @include flexcustom(column, normal, normal);
+
+  @include tablet {
+    padding: $spacing-lg $spacing-md;
+    gap: $spacing-lg;
+  }
+  @include desktop {
+    padding: $spacing-lg $spacing-xl;
+  }
+
+  &__header {
+    margin-bottom: $spacing-md;
+    @include flexcustom(column, normal, normal);
+    gap: $spacing-xs;
+
+    @include tablet {
+      @include flexcustom(row, normal, baseline);
+      gap: $spacing-md;
+      position: relative;
     }
+  }
 
-    &__title {
-        font-size: 1.5rem;
-        font-weight: $weight-bold;
-        margin-bottom: $spacing-sm;
+  &__title {
+    @include typography(1.5rem, $weight-bold, 2rem);
 
-        @include tablet {
-            margin-bottom: 0;
-        }
+    margin-bottom: $spacing-sm;
+    color: $color-white;
+
+    @include tablet {
+      @include typography(2.25rem, $weight-bold, 2.75rem);
     }
+  }
 
-    &__social {
-        display: flex;
-        gap: $spacing-lg;
-        margin-bottom: $spacing-md;
+  &__icon {
+    height: 1.5rem;
+  }
+  &__social {
+    @include flexcustom(row, normal, normal);
+    gap: $spacing-lg;
+  }
 
-        @include tablet {
-            margin-bottom: 0;
-        }
+  &__social-link {
+    @include flexcustom(row, normal, center);
+  }
+
+  &__content {
+    @include flexcustom(column, normal, normal);
+    gap: $spacing-sm;
+
+    @include tablet {
+      @include flexcustom(row, space-between, normal);
     }
-
-    &__social-link {
-        img {
-            width: 1.5rem;
-            height: 1.5rem;
-        }
+    @include desktop {
+      @include flexcustom(row, normal, normal);
+      gap: $spacing-xl;
     }
+  }
 
-    &__logo {
-        font-size: 1.5rem;
-        font-weight: $weight-bold;
-        margin-bottom: $spacing-md;
+  &__section {
+    @include flexcustom(column, normal, normal);
+    @include typography(0.8125rem, $weight-regular, 1.125rem);
+    margin-bottom: $spacing-sm;
 
-        @include tablet {
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            margin-bottom: 0;
-        }
+    @include tablet {
+      gap: $spacing-md;
+      @include typography(0.875rem, $weight-regular, 1.375rem);
     }
+  }
+  &__section-title {
+    margin: 0;
+    color: $color-mercury;
+    @include typography(0.875rem, $weight-bold, 1.375rem);
+  }
 
-    &__content {
-        @include flexcustom(column,flex-start,stretch);
-        gap: $spacing-md;
+  &__email {
+    color: $color-white;
+    text-decoration: none;
+    margin-top: $spacing-xs;
+  }
 
-        @include tablet {
-            flex-direction: row;
-            gap: $spacing-lg;
-        }
-    }
+  &__text {
+    color: $color-mercury;
+  }
 
-    &__section {
-        &-title {
-            font-size: 0.875rem;
-            font-weight: $weight-bold;
-            margin-bottom: $spacing-sm;
-        }
-    }
+  &__bottom {
+    margin-top: $spacing-lg;
+    @include flexcustom(column, normal, normal);
+  }
 
-    &__text {
-        @include text-body;
-        margin-bottom: $spacing-xs;
-    }
-
-    &__email {
-        @include text-body;
-        color: $color-white;
-        text-decoration: none;
-        display: inline-block;
-        margin-top: $spacing-xs;
-
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-
-    &__bottom {
-        margin-top: $spacing-lg;
-    }
-
-    &__copyright {
-        @include text-body;
-    }
+  &__copyright {
+    color: $color-mercury;
+    @include typography(0.625rem, $weight-regular, 1.25rem);
+  }
 }

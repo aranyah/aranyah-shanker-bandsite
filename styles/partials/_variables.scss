@@ -1,44 +1,32 @@
-
 $color-bandsite-black: #323232;
 $color-dark-black: #000000;
-$color-silver: #AFAFAF;
-$color-white: #FFFFFF;
-$color-mercury: #E1E1E1;
-$color-alabaster: #FAFAFA;
+$color-silver: #afafaf;
+$color-white: #ffffff;
+$color-mercury: #e1e1e1;
+$color-alabaster: #fafafa;
 
+$font-primary: "Nunito Sans", sans-serif;
 
-
-$font-primary: 'Nunito Sans', sans-serif;
-
-
-$breakpoint-mobile: 47rem; 
-$breakpoint-tablet: 48rem; 
-$breakpoint-desktop: 80rem; 
-
-
-
-
+$breakpoint-mobile: 47rem;
+$breakpoint-tablet: 48rem;
+$breakpoint-desktop: 80rem;
 
 $weight-regular: 400;
 $weight-medium: 500;
 $weight-bold: 700;
 
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 2rem;
+$spacing-lg: 3rem;
+$spacing-xl: 5rem;
+$spacing-xxl: 6.25rem;
+$spacing-xxxl: 10rem;
 
-$spacing-xs: 0.5rem;    
-$spacing-sm: 1rem;      
-$spacing-md: 2rem;       
-$spacing-lg: 3rem;      
-$spacing-xl: 5rem;       
-$spacing-xxl: 6.25rem;   
-$spacing-xxxl: 10rem;    
-
-
-$mobile-padding-before-headline: 1.5rem; 
-$mobile-padding-after-headline: 1rem;     
+$mobile-padding-before-headline: 1.5rem;
+$mobile-padding-after-headline: 1rem;
 $mobile-padding-between-components: 1rem;
 
-
-$desktop-padding-before-headline: 3rem;   
-$desktop-padding-after-headline: 2.25rem; 
-$desktop-padding-between-components: 2.25rem; 
-
+$desktop-padding-before-headline: 3rem;
+$desktop-padding-after-headline: 2.25rem;
+$desktop-padding-between-components: 2.25rem;

@@ -1,409 +1,359 @@
-
-
-
-@use './partials/variables' as *;
-@use './partials/mixins' as *;
-@use './partials/global' as *;
-@use '../assets/Font' as *;
+@use "./partials/variables" as *;
+@use "./partials/mixins" as *;
+@use "./partials/global" as *;
+@use "./partials/typography" as *;
 
 .hero {
+  @include hero-img-index;
+
+  &__title {
     position: relative;
-    height: 25rem; 
-    background-color: $color-bandsite-black;
-    background-image: url('/assets/images/hero-bio.jpg'); 
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: left;
-
-
-    &__overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: $color-bandsite-black;
-        opacity: 0.5;
-    }
-
-    &__title {
-        position: relative;
-        color: $color-white;
-
-        @include tablet {
-            padding: 0 4rem ;
-        }
-
-        @include desktop {
-            padding: 0 4rem ;
-        }
-
-    }
+    color: $color-white;
 
     @include tablet {
-        height: 31.25rem; 
+      padding: 0 4rem;
     }
 
     @include desktop {
-        height: 43.75rem; 
+      padding: 0 4rem;
     }
+  }
+
+  @include tablet {
+    height: 31.25rem;
+  }
+
+  @include desktop {
+    height: 43.75rem;
+  }
 }
 
-
-
-
 .biography {
-    margin: $spacing-lg;
+  margin: $spacing-lg;
+  @include flexcustom(column, normal, normal);
+
+  @include tablet {
+    gap: $spacing-sm;
+    padding: $spacing-lg $spacing-md $spacing-md;
+  }
+
+  @include desktop {
+    gap: $spacing-md;
+    padding: calc($spacing-xs * 4) $spacing-xl $spacing-lg;
+  }
+
+  &__title {
+    margin-bottom: $mobile-padding-after-headline;
+
+    @include tablet {
+      margin-bottom: $desktop-padding-after-headline;
+    }
+    @include desktop {
+      margin-bottom: $desktop-padding-after-headline;
+    }
+  }
+
+  &__container {
+    margin: 2rem;
     @include flexcustom(column, normal, normal);
 
     @include tablet {
-        gap: $spacing-sm;
-        padding: $spacing-lg $spacing-md $spacing-md;                                                                                                                                                                                                                                             
+      padding: 0 2rem;
     }
 
     @include desktop {
-        gap: $spacing-md;
-        padding: calc($spacing-xs *4) $spacing-xl $spacing-lg;
+      padding: 0 4rem;
     }
-   
-    
-    &__title {
-        margin-bottom: $mobile-padding-after-headline;
+  }
 
-        @include tablet {
-            margin-bottom: $desktop-padding-after-headline;
-        }
-        @include desktop {
-            margin-bottom: $desktop-padding-after-headline;
-        }
+  &__image {
+    width: 100%;
+    height: 50vw;
+    object-fit: cover;
+    object-position: bottom center;
+    margin-bottom: $desktop-padding-between-components;
 
+    @include tablet {
+      margin-bottom: $desktop-padding-between-components;
+      object-position: center center;
+      height: 40vw;
     }
-
-    &__container {
-        margin: 2rem;
-        @include flex-column(column, normal, normal);
-
-        @include tablet {
-            padding: 0 2rem;
-        }
-
-        @include desktop {
-            padding: 0 4rem;
-        }
+    @include desktop {
+      margin-bottom: $desktop-padding-between-components;
+      object-position: center center;
+      height: 35vh;
     }
+  }
 
-    &__image {
-        width: 100%;
-        height: 50vw;
-        object-fit: cover;
-        object-position: bottom center;
-        margin-bottom: $desktop-padding-between-components;
+  &__quote-text {
+    margin-bottom: $spacing-xs;
+    font-weight: $weight-bold;
+    line-height: 2rem;
+  }
 
-        @include tablet {
-        margin-bottom: $desktop-padding-between-components;
-        object-position: center center;
-        height: 40vw;
-        }    
-        @include desktop {
-            margin-bottom: $desktop-padding-between-components;
-            object-position: center center;
-            height: 35vh;
-            }  
+  &__header {
+    font-weight: $weight-medium;
+    font-size: 1rem;
+  }
+
+  &__text-container {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      gap: $spacing-md;
     }
 
-    
-
-    &__quote-text {
-        margin-bottom: $spacing-xs;
-        font-weight: $weight-bold;
-        line-height: 2rem;
-        
-
-
+    @include desktop {
+      display: flex;
+      flex-direction: row;
+      gap: $spacing-md;
     }
+  }
 
-    &__header {
-        font-weight: $weight-medium;
-        font-size: 1rem;
+  &__text {
+    flex: 1;
+    margin-bottom: $spacing-md;
+
+    @include tablet {
+      margin-bottom: 0;
     }
-
-
-    &__text-container {
-
-        display: flex;
-        flex-direction: column;
-        gap: $spacing-md;
-
-        @include tablet {
-            display: flex;
-            flex-direction: row;
-            gap: $spacing-md;
-        }
-
-        @include desktop {
-            display: flex;
-            flex-direction: row;
-            gap: $spacing-md;
-        }
+    @include desktop {
+      margin-bottom: 0;
     }
-
-    &__text {
-        flex: 1;
-        margin-bottom: $spacing-md;
-
-        @include tablet {
-            margin-bottom: 0;
-        }
-        @include desktop {
-            margin-bottom: 0;
-        }
-    }
+  }
 }
-
-
-
 
 .photo-gallery {
-    margin: 1.5rem;
+  margin: 1.5rem;
 
-    &__title {
-        margin-bottom: $spacing-lg;
+  &__title {
+    margin-bottom: $spacing-lg;
+  }
+
+  &__grid {
+    display: flex;
+    flex-direction: column;
+
+    gap: $spacing-xs;
+
+    @include tablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      padding: 0 2rem;
+    }
+    @include desktop {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      padding: 0 3rem;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    margin-bottom: $spacing-md;
+    object-fit: cover;
+
+    @include tablet {
+      width: calc(33.333% - #{$spacing-md} * 2 / 3);
+      margin-bottom: 0;
     }
 
-    &__grid {
-        display: flex;
-        flex-direction:column;
-     
-        gap: $spacing-xs;
-
-        @include tablet {
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-bottom: 1.5rem;
-            padding: 0 2rem;
-        }
-        @include desktop {
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-bottom: 1.5rem;
-            padding: 0 3rem;
-        }
-        
+    @include desktop {
+      width: calc(33.333% - #{$spacing-md} * 2 / 3);
+      margin-bottom: 0;
     }
-
-    &__image {
-        width: 100%;
-        margin-bottom: $spacing-md;
-        object-fit: cover;
-
-        @include tablet {
-            width: calc(33.333% - #{$spacing-md} * 2 / 3);
-            margin-bottom: 0;
-        }
-
-        @include desktop {
-            width: calc(33.333% - #{$spacing-md} * 2 / 3);
-            margin-bottom: 0;
-        }
-    }
+  }
 }
 
-.conversation {
-    padding: $spacing-md $spacing-lg;
+.comment {
+  padding: $spacing-md $spacing-lg;
+  @include tablet {
+    gap: $spacing-sm;
+  }
+  @include desktop {
+    gap: $spacing-md;
+  }
 
+  &__title {
+    @include typography(1.5rem, $weight-bold, 2rem);
+    color: $color-bandsite-black;
+    margin-bottom: $spacing-md;
+  }
 
-    &__title {
-        @include typography(1.5rem, $weight-bold, 2rem);
-        color: $color-bandsite-black;
-        margin-bottom: $spacing-md;
+  &__content {
+    @include flexcustom(column, normal, normal);
+    max-width: 63.75rem;
+    margin: 0 auto;
+    padding: 0 $spacing-md;
+
+    @include tablet {
+      max-width: $breakpoint-desktop;
+      margin: 0 auto;
+      padding: 0 $spacing-lg;
     }
+  }
 
-    &__content {
+  &__input-box {
+    display: flex;
+    gap: $spacing-md;
+    margin-bottom: $spacing-lg;
+    align-items: flex-start;
+  }
 
-        max-width: 63.75rem;
-        margin: 0 auto;
-        padding: 0 $spacing-md;
+  &__avatar {
+    width: 2.25rem;
+    top: 1.6rem;
+    flex-shrink: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: $color-mercury;
+    position: absolute;
 
-        @include tablet {
-            max-width: $breakpoint-desktop;
-            margin: 0 auto;
-            padding: 0 $spacing-lg;
+    @include tablet {
+      width: 2.25rem;
+      height: 2.25rem;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+  }
+
+  &__form {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+
+    @include tablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: flex-end;
+    }
+    &-group {
+      width: 100%;
+      margin-bottom: $spacing-md;
+
+      @include tablet {
+        &--name {
+          flex: 1;
         }
 
-        
-    }
-
-    &__input-container {
-        display: flex;
-        gap: $spacing-md;
-        margin-bottom: $spacing-lg;
-        align-items: flex-start;
-
-                @include tablet {
-                    align-items: flex-start;
-                    gap: $spacing-md;
-                }
-    }
-
-    &__avatar {
-        width: 2.25rem;
-        height: 2.25rem;
-        flex-shrink: 0;
-        border-radius: 50%;
-        overflow: hidden; 
-        background-color: $color-mercury; 
-        
-        img, &-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        &--comment {
+          flex: 1;
         }
 
-        @include tablet {
-            width: 2.25rem; 
-            height: 2.25rem;
+        &--button {
+          width: auto;
+          align-self: flex-end;
         }
+      }
     }
+  }
 
-    &__form {
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-        gap: $spacing-sm;
+  &__label {
+    display: block;
+    margin-bottom: $spacing-xs;
+    @include typography(0.75rem, $weight-bold, 1.25rem);
+    color: $color-bandsite-black;
+  }
 
-                                @include tablet {
-                                    flex-direction: row;
-                                    flex-wrap: wrap;
-                                    align-items: flex-end;
-                                }
-                                &-group {
-                                    width: 100%;
-                                    margin-bottom: $spacing-md;
-                                    
-                                    @include tablet {
-                                        &--name {
-                                            flex: 1;
-                                        }
-                                        
-                                        &--comment {
-                                            flex: 1;
-                                        }
-                                        
-                                        &--button {
-                                            width: auto;
-                                            align-self: flex-end;
-                                        }
-                                    }
-                                }
-            }
-        
-        
-    
+  &__input,
+  &__textarea {
+    width: 100%;
+    padding: $spacing-sm;
+    border: 0.0625rem solid $color-mercury;
+    border-radius: 0.25rem;
+    background-color: $color-alabaster;
+    margin-bottom: $spacing-sm;
 
-    &__label {
-            display: block;
-            margin-bottom: $spacing-xs;
-            @include typography(0.75rem, $weight-bold, 1.25rem);
-            color: $color-bandsite-black;
-        }
-
-    &__input,
-    &__textarea {
-        width: 100%;
-        padding: $spacing-sm;
-        border: 0.0625rem solid $color-mercury;
-        border-radius: 0.25rem;
-        background-color: $color-alabaster;
-        margin-bottom: $spacing-sm;
-
-        &::placeholder {
-            color: $color-bandsite-black;
-        }
+    &::placeholder {
+      color: $color-bandsite-black;
     }
+  }
 
-    &__textarea {
-        min-height: 6rem;
-        resize: vertical;
+  &__textarea {
+    min-height: 6rem;
+    resize: vertical;
+  }
+
+  &__submit {
+    width: 100%;
+    margin-top: $spacing-sm;
+    background-color: $color-bandsite-black;
+    color: $color-white;
+    border-radius: 0.25rem;
+    padding: $spacing-sm $spacing-md;
+    @include typography(0.875rem, $weight-bold, 1.375rem);
+
+    @include tablet {
+      width: auto;
+      min-width: 9.375rem;
+      margin-top: 0;
     }
+  }
 
+  &__list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: $spacing-lg;
+    border-top: 0.0625rem solid $color-mercury;
+  }
 
-    &__submit {
-        width: 100%;
-        margin-top: $spacing-sm;
-        background-color: $color-bandsite-black;
-        color: $color-white;
-        border-radius: 0.25rem;
-        padding: $spacing-sm $spacing-md;
-        @include typography(0.875rem, $weight-bold, 1.375rem);
+  &__entry {
+    display: flex;
+    gap: $spacing-md;
+    padding: $spacing-lg 0;
+    border-bottom: 0.0625rem solid $color-mercury;
+    list-style-type: none;
 
-        @include tablet {
-            width: auto;
-            min-width: 9.375rem; 
-            margin-top: 0;
-        }
+    &:last-child {
+      border-bottom: none;
     }
+  }
 
-    &__list {
-        list-style-type: none;
-        padding: 0;
-        margin-top: $spacing-lg;
-        border-top: 0.0625rem solid $color-mercury;
+  &__content {
+    flex-grow: 1;
+  }
 
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__name {
+    @include typography(0.875rem, $weight-bold, 1.25rem);
+    color: $color-bandsite-black;
+  }
+
+  &__date {
+    @include typography(0.875rem, $weight-regular, 1.25rem);
+    color: $color-silver;
+  }
+
+  &__text {
+    @include typography(0.875rem, $weight-regular, 1.375rem);
+    color: $color-bandsite-black;
+  }
+
+  &__form-group {
+    width: 100%;
+
+    @include tablet {
+      flex: 1;
+      margin-right: $spacing-md;
     }
-
-    &__entry {
-        display: flex;
-        gap: $spacing-md;
-        padding: $spacing-lg 0;
-        border-bottom: 0.0625rem solid $color-mercury;
-        list-style-type: none;
-
-        &:last-child {
-            border-bottom: none;
-        }
-    }
-
-    &__content {
-        flex-grow: 1;
-    }
-
-    &__header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: $spacing-xs;
-    }
-
-    &__name {
-        @include typography(0.875rem, $weight-bold, 1.25rem);
-        color: $color-bandsite-black;
-    }
-
-    &__date {
-        @include typography(0.875rem, $weight-regular, 1.25rem);
-        color: $color-silver;
-    }
-
-    &__text {
-        @include typography(0.875rem, $weight-regular, 1.375rem);
-        color: $color-bandsite-black;
-    }
-
-    &__form-group {
-        width: 100%;
-        
-        @include tablet {
-            flex: 1;
-            margin-right: $spacing-md;
-        }
-    }
-
-
-
-
+  }
 }
-
